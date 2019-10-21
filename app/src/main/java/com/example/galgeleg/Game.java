@@ -59,6 +59,7 @@ Galgelogik logik = new Galgelogik();
             Intent i = new Intent(this,EndGame.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
+            i.putExtra("ordetSomSkalGættes",logik.getOrdet());
             startActivity(i);
             return;
         }
@@ -67,6 +68,7 @@ Galgelogik logik = new Galgelogik();
         logik.gætBogstav(letterInput.getText().toString());
         gæt.setText(logik.getBrugteBogstaver().toString());
         lettersGuessed.setText(logik.getSynligtOrd());
+
         imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
     }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class  EndGame extends AppCompatActivity implements View.OnClickListener {
-    Galgelogik logik = new Galgelogik();
+    String ordet;
 String udfald;
 Intent i;
 Button spilIgen;
@@ -35,22 +35,22 @@ Button spilIgen;
     }
 
 
-private String howDidItTurnOut(Intent i){
-Boolean winner = i.getBooleanExtra("Winner", false);
-    Boolean looser = i.getBooleanExtra("Looser", false);
+    private String howDidItTurnOut(Intent i){
+    Boolean winner = i.getBooleanExtra("Winner", false);
+        Boolean looser = i.getBooleanExtra("Looser", false);
+        ordet = i.getStringExtra("ordetSomSkalGættes");
 
+            if(looser){
 
-        if(looser){
+                udfald = "Du har desværre tabt spillet\n Ordet du skulle gætte var" + ordet;
 
-            udfald = "Du har desværre tabt spillet\n Ordet du skulle gætte var" + logik.getOrdet();
+            }else if(winner){
 
-        }else if(winner){
+                udfald = "Tillykke du gætte ordet\n Ordet var: "+ordet;
+            }
 
-            udfald = "Tillykke du gætte ordet\n Ordet var: "+logik.getOrdet();
+            return udfald;
         }
-
-        return udfald;
-    }
 
 }
 
