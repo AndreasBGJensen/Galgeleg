@@ -33,7 +33,7 @@ public class StatePageAdapter extends FragmentStatePagerAdapter {
         return myFragments.size();
     }
 
-    private void addFragment(Fragment frag){
+    public void addFragment(Fragment frag){
         myFragments.add(frag);
     }
 }

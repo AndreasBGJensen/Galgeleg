@@ -30,7 +30,7 @@ Button spilIgen;
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, Game.class);
+        Intent i = new Intent(this, Fragment3_Game.class);
         startActivity(i);
     }
 

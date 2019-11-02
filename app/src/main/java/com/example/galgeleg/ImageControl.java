@@ -5,9 +5,9 @@ import android.widget.ImageView;
 
 public class ImageControl {
 
+
     ImageControl() {
     }
-
 
     public void map(int antalforkerte, ImageView errorIm, FrameLayout errorImage) {
 

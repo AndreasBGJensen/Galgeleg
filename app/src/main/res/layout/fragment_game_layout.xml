@@ -18,7 +18,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.146" />
+            app:layout_constraintVertical_bias="0.183" />
 
         <EditText
             android:id="@+id/letterInput"
@@ -61,15 +61,19 @@
             app:layout_constraintTop_toBottomOf="@+id/letterInput"
             app:layout_constraintVertical_bias="1.0">
 
+            <ImageView
+                android:id="@+id/errorIm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/forkert0" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/ForkerteGæt"
             android:layout_width="160dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="644dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="84dp"
+            android:text="Ord du har gættet på"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

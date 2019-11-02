@@ -11,43 +11,40 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-
-public class  Game extends AppCompatActivity implements View.OnClickListener {
-Galgelogik logik = new Galgelogik();
+public class Fragment3_Game extends Fragment implements View.OnClickListener {
+    Galgelogik logik = new Galgelogik();
     TextView lettersGuessed, gæt;
     EditText letterInput;
     Button submit;
-    FrameLayout errorImage;
     ImageView errorIm;
+    FrameLayout errorImage;
+
     ImageControl imageControle = new ImageControl();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_layout);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
 
 
-        lettersGuessed = findViewById(R.id.guessedLetters);
+        lettersGuessed = view.findViewById(R.id.guessedLetters);
         lettersGuessed.setText(logik.getSynligtOrd());
 
-        letterInput = findViewById(R.id.letterInput);
+        letterInput = view.findViewById(R.id.letterInput);
 
-        gæt = findViewById(R.id.ForkerteGæt);
+        gæt = view.findViewById(R.id.ForkerteGæt);
 
-        submit = findViewById(R.id.submit);
+        submit = view.findViewById(R.id.submit);
         submit.setOnClickListener(this);
 
-        errorImage = findViewById(R.id.ErrorImage);
-        errorIm = new ImageView(this);
+        errorImage = view.findViewById(R.id.ErrorImage);
+        errorIm = view.findViewById(R.id.errorIm);
 
-
+        return view;
 
     }
 
@@ -56,7 +53,7 @@ Galgelogik logik = new Galgelogik();
 
         if(logik.erSpilletSlut()){
 
-            Intent i = new Intent(this,EndGame.class);
+            Intent i = new Intent(getActivity(),EndGame.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());
@@ -68,6 +65,7 @@ Galgelogik logik = new Galgelogik();
         logik.gætBogstav(letterInput.getText().toString());
         gæt.setText(logik.getBrugteBogstaver().toString());
         lettersGuessed.setText(logik.getSynligtOrd());
+        letterInput.setText("");
 
         imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
