@@ -8,20 +8,23 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="overskrift"
-        android:textColor="#ffffff"
+        android:layout_width="134dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/score"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:text="beskrivelse"
-        android:textSize="12sp"/>
+        android:layout_width="275dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_toEndOf="@+id/username"
+        android:layout_toRightOf="@+id/username"
+
+        android:textSize="12sp" />
 
 
 </RelativeLayout>

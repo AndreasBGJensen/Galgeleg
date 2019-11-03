@@ -3,7 +3,7 @@ package com.example.galgeleg.HighScore;
 public class UserHighScoreDTO {
 
     private String name;
-    private int score;
+    private String score;
 
 
     public String getName() {
@@ -14,15 +14,15 @@ public class UserHighScoreDTO {
         this.name = name;
     }
 
-    public int getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 
-    public UserHighScoreDTO(String name, int score){
+    public UserHighScoreDTO(String name, String score){
         this.name = name;
         this.score = score;
 
