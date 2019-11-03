@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the viewpager
         addFragmentsToViewPager(myViewPager);
 
-        //Her we insert the first fragment
+        //Here we insert the first fragment
         setViewPager(0);
     }
 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Fragment1_Frontpage());
         adapter.addFragment(new Fragment2_config());
         adapter.addFragment(new Fragment3_Game());
+        //adapter.addFragment(new Fragment5_highscore());
         viewPager.setAdapter(adapter);
     }
 

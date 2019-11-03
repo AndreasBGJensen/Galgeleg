@@ -1,0 +1,94 @@
+package com.example.galgeleg;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.example.galgeleg.HighScore.UserHighScoreDTO;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Fragment5_highscore extends AppCompatActivity {
+    String[] landeArray = {"* Norden", "Danmark", "Norge", "Sverige", "Island", "Færøerne", "Finland",
+            "* Europa", "Tyskland", "Østrig", "Belgien", "Holland", "Italien", "Grækenland",
+            "Frankrig", "Spanien", "Portugal",
+            "* Resten af verden", "Nepal", "Indien", "Kina", "Japan", "Thailand"};
+    // Vi laver en arrayliste så vi kan fjerne/indsætte elementer
+    ArrayList<String> lande = new ArrayList<>(Arrays.asList(landeArray));
+
+    RecyclerView recyclerView;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        recyclerView = new RecyclerView(this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
+        setContentView(recyclerView);
+    }
+
+
+    RecyclerView.Adapter adapter = new RecyclerView.Adapter() {
+        @Override
+        public int getItemCount()  {
+            return lande.size();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            if (lande.get(position).startsWith("*")) return 1;
+            else return 0;
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            if (viewType==0) {
+                View itemView = getLayoutInflater().inflate(R.layout.highscore_listitem, parent, false);
+                ListeelemViewholder vh = new ListeelemViewholder(itemView);
+                vh.overskrift = itemView.findViewById(R.id.username);
+                vh.beskrivelse = itemView.findViewById(R.id.score);
+
+                return vh;
+            } else {
+                View itemView = getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
+                return new RecyclerView.ViewHolder(itemView) {};
+            }
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder vh0, int position) {
+            if (getItemViewType(position)==0) {
+                ListeelemViewholder vh = (ListeelemViewholder) vh0;
+                vh.overskrift.setText(lande.get(position));
+                vh.beskrivelse.setText("Land nummer " + position);
+            } else {
+                TextView tv = vh0.itemView.findViewById(android.R.id.text1);
+                tv.setTextSize(36);
+                tv.setText(lande.get(position));
+            }
+        }
+    };
+
+
+
+    class ListeelemViewholder extends RecyclerView.ViewHolder {
+        TextView overskrift;
+        TextView beskrivelse;
+
+
+        public ListeelemViewholder(View itemView) {
+            super(itemView);
+        }
+    }
+}

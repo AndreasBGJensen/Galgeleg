@@ -7,14 +7,13 @@
     android:background="#000000">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="326dp"
         android:layout_height="0dp"
         android:layout_marginTop="91dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/PlayButton"
+        android:layout_marginBottom="134dp"
+        app:layout_constraintBottom_toTopOf="@+id/settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +23,8 @@
 
     <Button
         android:id="@+id/PlayButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="74dp"
         android:layout_marginBottom="68dp"
         android:bufferType="spannable"
         android:capitalize="words"
@@ -33,9 +32,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintVertical_bias="0.901" />
 
     <TextView
         android:id="@+id/Title"
@@ -50,5 +50,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.071"
         tools:text="HANGMAN" />
+
+    <Button
+        android:id="@+id/highscore"
+        android:layout_width="102dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginRight="122dp"
+        android:text="HIGHSCORE"
+        app:layout_constraintBottom_toBottomOf="@+id/settings"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/settings"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="94dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="40dp"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/highscore"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

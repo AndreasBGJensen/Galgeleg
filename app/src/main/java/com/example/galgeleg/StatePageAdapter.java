@@ -10,7 +10,7 @@ import java.util.List;
 public class StatePageAdapter extends FragmentStatePagerAdapter {
 
    private final List<Fragment> myFragments = new ArrayList<>();
-   private final List<Fragment> getMyFragmentsTitle = new ArrayList<>(); //If I want to keep track of my fragments.
+
 
 
     public StatePageAdapter(FragmentManager fm) {
