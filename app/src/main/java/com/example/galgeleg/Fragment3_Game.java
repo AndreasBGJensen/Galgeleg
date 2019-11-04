@@ -15,21 +15,27 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class Fragment3_Game extends Fragment implements View.OnClickListener {
-    Galgelogik logik = new Galgelogik();
-    TextView lettersGuessed, gæt;
-    EditText letterInput;
-    Button submit;
-    ImageView errorIm;
-    FrameLayout errorImage;
+import com.example.galgeleg.Database.Database;
 
-    ImageControl imageControle = new ImageControl();
+public class Fragment3_Game extends Fragment implements View.OnClickListener {
+    private Galgelogik logik = new Galgelogik();
+    private TextView lettersGuessed, gæt, helloUser;
+    private EditText letterInput;
+    private Button submit;
+    private ImageView errorIm;
+    private FrameLayout errorImage;
+
+
+    private ImageControl imageControle = new ImageControl();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
+        Database base = Database.getInstance(getContext());
 
 
+        helloUser = view.findViewById(R.id.User);
+        helloUser.setText("Hello "+base.getCurrentUser()+"!");
 
         lettersGuessed = view.findViewById(R.id.guessedLetters);
         lettersGuessed.setText(logik.getSynligtOrd());
@@ -57,6 +63,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());
+            i.putExtra("Antalforsøg",logik.getBrugteBogstaver().size());
             startActivity(i);
             return;
         }

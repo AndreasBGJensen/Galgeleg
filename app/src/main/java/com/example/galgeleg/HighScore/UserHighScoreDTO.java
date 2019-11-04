@@ -1,6 +1,6 @@
 package com.example.galgeleg.HighScore;
 
-public class UserHighScoreDTO {
+public class UserHighScoreDTO  implements Comparable   {
 
     private String name;
     private String score;
@@ -26,5 +26,18 @@ public class UserHighScoreDTO {
         this.name = name;
         this.score = score;
 
+    }
+
+    public String toString(){
+        return getName()+" score : " + getScore();
+    }
+
+
+//This code snip i from https://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
+    @Override
+    public int compareTo(Object o) {
+        int compareage=Integer.parseInt(((UserHighScoreDTO)o).getScore());
+        /* For Ascending order*/
+        return compareage-Integer.parseInt(this.getScore());
     }
 }

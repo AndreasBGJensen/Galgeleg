@@ -19,6 +19,9 @@
 
         <activity android:name=".EndGame"/>
         <activity android:name=".Fragment5_highscore"/>
+        <activity android:name=".Fragment_addUser"/>
+        <activity android:name=".Fragment3_Game"/>
+
     </application>
 
 </manifest>

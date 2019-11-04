@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="91dp"
         android:layout_marginBottom="134dp"
-        app:layout_constraintBottom_toTopOf="@+id/settings"
+        app:layout_constraintBottom_toTopOf="@+id/opretUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,14 +60,14 @@
         android:layout_marginEnd="122dp"
         android:layout_marginRight="122dp"
         android:text="HIGHSCORE"
-        app:layout_constraintBottom_toBottomOf="@+id/settings"
-        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintBottom_toBottomOf="@+id/opretUser"
+        app:layout_constraintEnd_toStartOf="@+id/opretUser"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/settings"
+        app:layout_constraintTop_toTopOf="@+id/opretUser"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/settings"
+        android:id="@+id/opretUser"
         android:layout_width="94dp"
         android:layout_height="54dp"
         android:layout_marginEnd="43dp"

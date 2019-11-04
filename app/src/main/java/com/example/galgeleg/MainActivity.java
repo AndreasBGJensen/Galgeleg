@@ -1,14 +1,11 @@
 package com.example.galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.view.View.OnClickListener;
+
+import com.example.galgeleg.Database.Database;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Here we insert the first fragment
         setViewPager(0);
+
     }
 
     /*
@@ -48,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Fragment1_Frontpage());
         adapter.addFragment(new Fragment2_config());
         adapter.addFragment(new Fragment3_Game());
-        //adapter.addFragment(new Fragment5_highscore());
+        adapter.addFragment(new Fragment_addUser());
+        //adapter.addFragment(new Fragment5_highscore()); //The highScore list is made as an Activity instead.
         viewPager.setAdapter(adapter);
     }
 
     public void setViewPager(int i){
         myViewPager.setCurrentItem(i);
     }
+
 
 }

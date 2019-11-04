@@ -11,36 +11,55 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="409dp"
+            android:layout_height="193dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="119dp"
             android:text="This game i all about surviving\n Lets see how you will do\n\n You have to guess the letters that \n the word consists of.\n \n"
             android:textAlignment="center"
-            android:textSize="82px"
+            android:textSize="70px"
+            app:layout_constraintBottom_toTopOf="@+id/PressButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.142" />
+
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your username\n and get on the highscore  "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/submitUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.438" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/PressButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Press the screen to continue "
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="104dp"
+            android:text="Continue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <Button
-            android:id="@+id/PressScreen"
-            android:layout_width="343dp"
-            android:layout_height="661dp"
-            android:text="Button"
-            android:alpha="0.0"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.galgeleg.Database.Database;
+
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
 
     Button startSpil;
     Button highscore;
-    Button settings;
+    Button opretUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -28,8 +30,8 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
         highscore = view.findViewById(R.id.highscore);
         highscore.setOnClickListener(this);
 
-        settings = view.findViewById(R.id.settings);
-        settings.setOnClickListener(this);
+        opretUser = view.findViewById(R.id.opretUser);
+        opretUser.setOnClickListener(this);
 
         return view;
     }
@@ -48,8 +50,10 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
             Intent i = new Intent(getContext(),Fragment5_highscore.class);
             startActivity(i);
         }
-        if(v==settings){
-            ((MainActivity) getActivity()).setViewPager(4);
+        //Navigate to activity
+        if(v==opretUser){
+            ((MainActivity) getActivity()).setViewPager(3);
         }
+
     }
 }
