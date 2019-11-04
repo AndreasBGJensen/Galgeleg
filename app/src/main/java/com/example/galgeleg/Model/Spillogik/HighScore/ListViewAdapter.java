@@ -1,4 +1,4 @@
-package com.example.galgeleg.HighScore;
+package com.example.galgeleg.Model.Spillogik.HighScore;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,24 +1,18 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.galgeleg.Database.Database;
-import com.example.galgeleg.HighScore.UserHighScoreDTO;
-
-import java.util.prefs.PreferenceChangeEvent;
+import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.R;
 
 public class Fragment_addUser extends Fragment implements View.OnClickListener {
 Button submit;

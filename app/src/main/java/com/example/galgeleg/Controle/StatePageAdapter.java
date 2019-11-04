@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package com.example.galgeleg.Controle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

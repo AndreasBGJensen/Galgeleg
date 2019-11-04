@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.galgeleg.Database.Database;
+import com.example.galgeleg.R;
 
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.galgeleg.Database.Database;
-import com.example.galgeleg.HighScore.CalculatScore;
+import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
+import com.example.galgeleg.R;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 
 public class  EndGame extends AppCompatActivity implements View.OnClickListener {
     String ordet;
@@ -43,10 +45,10 @@ CalculatScore scoreCalculation;
     public void onClick(View v) {
         Database basen = Database.getInstance(getApplicationContext());
     if(v==spilIgen) {
-        Intent i = new Intent(this, Fragment3_Game.class);
+
+        Intent i = new Intent(getBaseContext(), Fragment3_Game.class);
         startActivity(i);
-        Intent a = new Intent(getApplicationContext(), Fragment3_Game.class);
-        startActivity(a);
+
     }
     if(v==frontPage){
         Intent i = new Intent(this, MainActivity.class);
@@ -68,7 +70,7 @@ CalculatScore scoreCalculation;
 
             }else if(winner){
 
-                udfald = "Tillykke du gætte ordet på "+i.getStringExtra("Antalforsøg")+"\n Ordet var:\n "+ordet;
+                udfald = "Tillykke du gætte ordet på "+i.getStringExtra("Antalforsøg")+" forsøg\n Ordet var:\n "+ordet;
                 String user = basen.getCurrentUser();
                 String newScorePoints = i.getStringExtra("Antalforsøg");
                 scoreCalculation = new CalculatScore(basen.getUser(user),newScorePoints);
@@ -79,6 +81,8 @@ CalculatScore scoreCalculation;
 
             return udfald;
         }
+
+
 
 }
 

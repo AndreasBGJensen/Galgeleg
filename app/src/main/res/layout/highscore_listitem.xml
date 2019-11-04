@@ -17,10 +17,10 @@
 
     <TextView
         android:id="@+id/score"
-        android:layout_width="275dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_width="140dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginLeft="123dp"
         android:layout_toEndOf="@+id/username"
         android:layout_toRightOf="@+id/username"
 

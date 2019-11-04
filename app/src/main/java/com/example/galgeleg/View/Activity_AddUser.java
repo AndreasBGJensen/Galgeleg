@@ -1,11 +1,11 @@
-package com.example.galgeleg.AddUser;
+package com.example.galgeleg.View;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.galgeleg.HighScore.UserHighScoreDTO;
+import com.example.galgeleg.Model.Spillogik.HighScore.UserHighScoreDTO;
 
 public class Activity_AddUser extends AppCompatActivity {
 

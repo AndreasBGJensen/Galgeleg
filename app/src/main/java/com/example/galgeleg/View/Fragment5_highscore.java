@@ -1,17 +1,14 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.galgeleg.Database.Database;
-import com.example.galgeleg.HighScore.ListViewAdapter;
-import com.example.galgeleg.HighScore.UserHighScoreDTO;
+import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.Model.Spillogik.HighScore.ListViewAdapter;
+import com.example.galgeleg.Model.Spillogik.HighScore.UserHighScoreDTO;
 
-import java.util.ArrayList;
-
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

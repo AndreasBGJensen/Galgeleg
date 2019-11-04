@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package com.example.galgeleg.Model.Spillogik;
 
 
 import java.io.BufferedReader;

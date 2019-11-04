@@ -1,19 +1,16 @@
-package com.example.galgeleg.Database;
+package com.example.galgeleg.Model.Database;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.galgeleg.HighScore.UserHighScoreDTO;
+import com.example.galgeleg.Model.Spillogik.HighScore.UserHighScoreDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Database extends AppCompatActivity {
     static Database base = null;

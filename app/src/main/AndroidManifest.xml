@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".EndGame"/>
-        <activity android:name=".Fragment5_highscore"/>
-        <activity android:name=".Fragment_addUser"/>
-        <activity android:name=".Fragment3_Game"/>
+        <activity android:name=".View.EndGame"/>
+        <activity android:name=".View.Fragment5_highscore"/>
+        <activity android:name=".View.Fragment_addUser"/>
+        <activity android:name=".View.Game.Fragment3_Game"/>
 
     </application>
 

@@ -1,10 +1,13 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
-import com.example.galgeleg.Database.Database;
+import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.R;
+import com.example.galgeleg.Controle.StatePageAdapter;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Here we insert the first fragment
         setViewPager(0);
+
 
     }
 

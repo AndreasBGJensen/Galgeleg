@@ -1,4 +1,4 @@
-package com.example.galgeleg.HighScore;
+package com.example.galgeleg.Model.Spillogik.HighScore;
 
 public class UserHighScoreDTO  implements Comparable   {
 
