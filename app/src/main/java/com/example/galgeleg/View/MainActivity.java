@@ -1,8 +1,14 @@
 package com.example.galgeleg.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;

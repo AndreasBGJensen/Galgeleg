@@ -2,6 +2,7 @@ package com.example.galgeleg.View.Game;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,14 +34,11 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
-        Database base = Database.getInstance(getContext());
 
 
         helloUser = view.findViewById(R.id.User);
-        helloUser.setText("Hello "+base.getCurrentUser()+"!");
 
         lettersGuessed = view.findViewById(R.id.guessedLetters);
-        lettersGuessed.setText(logik.getSynligtOrd());
 
         letterInput = view.findViewById(R.id.letterInput);
 
@@ -56,7 +54,17 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        Log.d("Fragment3_Game", "setUserVisibleHint: "+isVisibleToUser);
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            Database base = Database.getInstance(getContext());
+            helloUser.setText("Hello "+base.getCurrentUser()+"!");
+            lettersGuessed.setText(logik.getSynligtOrd());
 
+        }
+    }
 
     @Override
     public void onClick(View v) {
