@@ -13,7 +13,7 @@ import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 
-public class  EndGame extends AppCompatActivity implements View.OnClickListener {
+public class Activity_EndGame extends AppCompatActivity implements View.OnClickListener {
     String ordet;
 String udfald;
 Intent i;

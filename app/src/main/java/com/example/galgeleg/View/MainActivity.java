@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Fragment2_config());
         adapter.addFragment(new Fragment3_Game());
         adapter.addFragment(new Fragment_addUser());
-        //adapter.addFragment(new Fragment5_highscore()); //The highScore list is made as an Activity instead.
+        //adapter.addFragment(new Activity_highscore()); //The highScore list is made as an Activity instead.
         viewPager.setAdapter(adapter);
     }
 

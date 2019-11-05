@@ -12,6 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/*
+Denne klasse er lavet til en singleton. Dette skyldes at jeg har
+forsøgt mig med at overføre data ved at opbevare den i SheredPræferences.
+Dette medførger dog at der skal oprettes et Database instans i flere fragmenter og Aktiviteter.
+
+Årsagen til at jeg har valgt at overfre data på denne måde er hovedsageligt at jeg syntes at det kunne være sjovt at prøve,
+få mere kendskab til sharedpræferences og fordi at jeg gerne ville prøve at lave min egen StagePageAdapter.
+ */
+
 public class Database extends AppCompatActivity {
     static Database base = null;
 
@@ -36,7 +45,9 @@ public class Database extends AppCompatActivity {
 
 
 
-
+/*
+Metoderne nedenfor tilgår SharedPreferences, hvor der laves CRUD operatoner på dataen.
+ */
 
 
     public boolean checkUser(String username){
@@ -84,6 +95,10 @@ public class Database extends AppCompatActivity {
         pref.edit().remove(username).apply();
         addUser(username,score);
     }
+
+    /*
+    Denne metode anvendes til at state, hvilken bruger som er "logget ind".
+     */
 
     public void setCurrentUser(String username){
         pref.edit().putString("currentUser",username).apply();

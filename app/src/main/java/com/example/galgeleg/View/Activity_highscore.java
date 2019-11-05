@@ -12,7 +12,7 @@ import com.example.galgeleg.Model.Spillogik.HighScore.UserHighScoreDTO;
 import java.util.Collections;
 import java.util.List;
 
-public class Fragment5_highscore extends AppCompatActivity{
+public class Activity_highscore extends AppCompatActivity{
 
 
 

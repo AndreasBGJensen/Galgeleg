@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.EndGame"/>
-        <activity android:name=".View.Fragment5_highscore"/>
-        <activity android:name=".View.Fragment_addUser"/>
-        <activity android:name=".View.Game.Fragment3_Game"/>
+        <activity android:name=".View.Activity_EndGame"/>
+        <activity android:name=".View.Activity_highscore"/>
+
+
 
     </application>
 

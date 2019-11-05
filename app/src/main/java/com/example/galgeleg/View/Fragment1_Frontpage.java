@@ -47,7 +47,7 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
             ((MainActivity) getActivity()).setViewPager(1);
         }
         if(v==highscore){
-            Intent i = new Intent(getContext(),Fragment5_highscore.class);
+            Intent i = new Intent(getContext(), Activity_highscore.class);
             startActivity(i);
         }
         //Navigate to activity

@@ -17,8 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.EndGame;
-import com.example.galgeleg.View.Game.ImageControl;
+import com.example.galgeleg.View.Activity_EndGame;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private Galgelogik logik = new Galgelogik();
@@ -57,12 +56,14 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public void onClick(View v) {
 
-        if(logik.erSpilletSlut()){
+        if(logik.erSpilletTabt()||logik.erSpilletVundet()){
 
-            Intent i = new Intent(getActivity(), EndGame.class);
+            Intent i = new Intent(getActivity(), Activity_EndGame.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());
