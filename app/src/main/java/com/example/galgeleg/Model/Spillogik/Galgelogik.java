@@ -1,6 +1,8 @@
 package com.example.galgeleg.Model.Spillogik;
 
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,9 +22,12 @@ public class Galgelogik {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
+    private getMuligeOrd ordFraDr;
 
     public Galgelogik() {
         muligeOrd.add("bil");
+        ordFraDr = new getMuligeOrd();
+        ordFraDr.execute(this);
        /* muligeOrd.add("computer");
         muligeOrd.add("programmering");
         muligeOrd.add("motorvej");
@@ -201,5 +206,18 @@ public class Galgelogik {
 
         System.out.println("muligeOrd = " + muligeOrd);
         nulstil();
+    }
+
+    class getMuligeOrd extends AsyncTask<Galgelogik,Void,Void> {
+
+        @Override
+        protected Void doInBackground(Galgelogik... galgelogiks) {
+            try {
+                galgelogiks[0].hentOrdFraDr();
+            }catch (Exception e){
+                System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
+            }
+            return null;
+        }
     }
 }
