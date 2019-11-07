@@ -1,5 +1,6 @@
 package com.example.galgeleg.View;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,9 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
 
     TextView message;
     EditText submitUser;
-    Button pressScreen;
+    Button continueButton;
+    Button goBack;
+    Button createUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -29,8 +32,15 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
         submitUser = view.findViewById(R.id.submitUser);
 
 
-        pressScreen = view.findViewById(R.id.PressButton);
-        pressScreen.setOnClickListener(this);
+        continueButton = view.findViewById(R.id.PressButton);
+        continueButton.setOnClickListener(this);
+
+        goBack = view.findViewById(R.id.toFront);
+        goBack.setOnClickListener(this);
+
+        createUser = view.findViewById(R.id.CreateUser);
+        createUser.setOnClickListener(this);
+
 
         return view;
     }
@@ -44,20 +54,29 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
 
         String enteredUsername = submitUser.getText().toString();
 
+        if(v == continueButton) {
+            if (base.checkUser(enteredUsername)) {
+                //Place the player that i currently playing
+                base.setCurrentUser(enteredUsername);
+                //Navigate to fragment...
+                ((MainActivity) getActivity()).setViewPager(2);
+            } else {
+                message.setText("You have entered a wrong username");
 
-        if(base.checkUser(enteredUsername)){
-            //Place the player that i currently playing
-            base.setCurrentUser(enteredUsername);
-            //Navigate to fragment...
-            ((MainActivity)getActivity()).setViewPager(2);
-        }else{
-            message.setText("You have entered a wrong username");
+            }
+        }else if(v==goBack){
+            ((MainActivity) getActivity()).setViewPager(0);
+        }else if(v==createUser){
+            ((MainActivity) getActivity()).setViewPager(3);
         }
 
 
 
 
         }
+
+
+
 
 }
 
