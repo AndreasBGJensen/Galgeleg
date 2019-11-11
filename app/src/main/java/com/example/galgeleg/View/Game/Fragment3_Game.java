@@ -1,6 +1,7 @@
 package com.example.galgeleg.View.Game;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ import com.example.galgeleg.R;
 import com.example.galgeleg.View.Activity_EndGame;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
-    private Galgelogik logik = new Galgelogik();
+    private static Galgelogik logik = new Galgelogik();
     private TextView lettersGuessed, gæt, helloUser;
     private EditText letterInput;
     private Button submit;
@@ -50,6 +51,27 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         errorImage = view.findViewById(R.id.ErrorImage);
         errorIm = view.findViewById(R.id.errorIm);
 
+        logik.logStatus();
+        class getMuligeOrd extends AsyncTask<String,String,String> {
+
+            @Override
+            protected String doInBackground(String...Strings) {
+                try {
+                    logik.hentOrdFraDr();
+                }catch (Exception e){
+                    System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
+                }
+                return logik.getSynligtOrd();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                lettersGuessed.setText(s);
+            }
+        }
+
+         new getMuligeOrd().execute();
+
         return view;
 
     }
@@ -77,6 +99,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());
             i.putExtra("Antalforsøg",logik.getBrugteBogstaver().size());
             startActivity(i);
+            logik.nulstil();
             return;
         }
 
@@ -89,6 +112,8 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
     }
+
+
 
 }
 

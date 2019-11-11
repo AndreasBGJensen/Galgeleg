@@ -22,20 +22,19 @@ public class Galgelogik {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
-    private getMuligeOrd ordFraDr;
+
 
     public Galgelogik() {
         muligeOrd.add("bil");
-        ordFraDr = new getMuligeOrd();
-        ordFraDr.execute(this);
-       /* muligeOrd.add("computer");
+
+        muligeOrd.add("computer");
         muligeOrd.add("programmering");
         muligeOrd.add("motorvej");
         muligeOrd.add("busrute");
         muligeOrd.add("gangsti");
         muligeOrd.add("skovsnegl");
         muligeOrd.add("solsort");
-        muligeOrd.add("nitten");*/
+        muligeOrd.add("nitten");
         nulstil();
     }
 
@@ -208,16 +207,5 @@ public class Galgelogik {
         nulstil();
     }
 
-    class getMuligeOrd extends AsyncTask<Galgelogik,Void,Void> {
 
-        @Override
-        protected Void doInBackground(Galgelogik... galgelogiks) {
-            try {
-                galgelogiks[0].hentOrdFraDr();
-            }catch (Exception e){
-                System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
-            }
-            return null;
-        }
-    }
 }
