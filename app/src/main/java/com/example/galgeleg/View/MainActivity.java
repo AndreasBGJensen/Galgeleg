@@ -15,7 +15,13 @@ import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;
 import com.example.galgeleg.Controle.StatePageAdapter;
 import com.example.galgeleg.View.Game.Fragment3_Game;
-
+/*
+I denne opgave har jeg forsøgt at implementere lidt forskellige løsninger.
+Til at løse opgave har jeg gjort brug af følgende:
+- AsyncTask: til at hente ord fra DR
+- RecyclerView til at lave en highScore Liste
+- ShearedPreferences til at gemme data på telefonen.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
