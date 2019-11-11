@@ -1,13 +1,18 @@
-package com.example.galgeleg;
+package com.example.galgeleg.View.Game;
 
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.example.galgeleg.R;
+
+/*
+Image Controle is used to controle the images that are shown in the Fragment3_Game.
+ */
+
 public class ImageControl {
 
-    ImageControl() {
-    }
 
+    ImageControl() { }
 
     public void map(int antalforkerte, ImageView errorIm, FrameLayout errorImage) {
 

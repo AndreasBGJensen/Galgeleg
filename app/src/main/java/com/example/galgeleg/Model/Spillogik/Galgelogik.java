@@ -1,5 +1,7 @@
-package com.example.galgeleg;
+package com.example.galgeleg.Model.Spillogik;
 
+
+import android.os.AsyncTask;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +23,10 @@ public class Galgelogik {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
+
     public Galgelogik() {
         muligeOrd.add("bil");
+
         muligeOrd.add("computer");
         muligeOrd.add("programmering");
         muligeOrd.add("motorvej");
@@ -202,4 +206,6 @@ public class Galgelogik {
         System.out.println("muligeOrd = " + muligeOrd);
         nulstil();
     }
+
+
 }
