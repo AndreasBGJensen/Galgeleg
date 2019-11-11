@@ -11,15 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.Game.Fragment3_Game;
 
 public class Activity_EndGame extends AppCompatActivity implements View.OnClickListener {
     String ordet;
-String udfald;
-Intent i;
-Button spilIgen;
-Button frontPage;
-CalculatScore scoreCalculation;
+    String udfald;
+    Intent i;
+    Button tilHighscore;
+    Button frontPage;
+    CalculatScore scoreCalculation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +28,8 @@ CalculatScore scoreCalculation;
         TextView endGameMsg = findViewById(R.id.msg);
         endGameMsg.setText(howDidItTurnOut(i));
 
-        spilIgen = findViewById(R.id.Spiligen);
-        spilIgen.setOnClickListener(this);
+        tilHighscore = findViewById(R.id.highScore);
+        tilHighscore.setOnClickListener(this);
 
         frontPage = findViewById(R.id.FrontPage);
         frontPage.setOnClickListener(this);
@@ -44,9 +43,9 @@ CalculatScore scoreCalculation;
     @Override
     public void onClick(View v) {
         Database basen = Database.getInstance(getApplicationContext());
-    if(v==spilIgen) {
+    if(v== tilHighscore) {
 
-        Intent i = new Intent(getBaseContext(), Fragment3_Game.class);
+        Intent i = new Intent(this, Activity_highscore.class );
         startActivity(i);
 
     }
