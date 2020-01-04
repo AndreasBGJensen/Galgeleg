@@ -61,8 +61,23 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
                 //Place the player that i currently playing
                 base.setCurrentUser(enteredUsername);
                 //Navigate to fragment...
+
+
+
+                /*
+                Creating a Bundle and passing it to the Fragment Fragment3_Game
+                This could have be done by just loading the usename from the PreferenceManager
+                But i choose to do do it like this.
+                 */
+                Fragment fragment = new Fragment3_Game();
+
+                Bundle args = new Bundle();
+                args.putString("UserPlaying",enteredUsername);
+
+                fragment.setArguments(args);
+
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentindhold,new Fragment3_Game())
+                        .replace(R.id.fragmentindhold,fragment)
                         .addToBackStack(null)
                         .commit();
             } else {
