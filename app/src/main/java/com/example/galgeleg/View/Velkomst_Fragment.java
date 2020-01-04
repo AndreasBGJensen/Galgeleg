@@ -15,7 +15,7 @@ import com.example.galgeleg.R;
 
 public class Velkomst_Fragment extends Fragment implements Runnable {
 
-
+    //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
 
     @Override

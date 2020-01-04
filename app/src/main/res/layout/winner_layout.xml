@@ -14,20 +14,20 @@
             android:layout_width="313dp"
             android:layout_height="0dp"
             android:layout_marginTop="90dp"
-            android:layout_marginBottom="364dp"
+            android:layout_marginBottom="455dp"
             android:text="The game is over"
             android:textSize="38dp"
-            app:layout_constraintBottom_toTopOf="@+id/highScore"
+            app:layout_constraintBottom_toTopOf="@+id/SpilIgen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.128" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/msg"
-            android:layout_width="301dp"
-            android:layout_height="190dp"
+            android:layout_width="295dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="292dp"
             android:text="TextView"
             android:textSize="28dp"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.752" />
+            app:layout_constraintVertical_bias="0.741" />
 
         <Button
             android:id="@+id/highScore"
@@ -48,19 +48,27 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/msg"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.647" />
+
+
+        <Button
+            android:id="@+id/SpilIgen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="87dp"
+            android:text="Spil Igen?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/FrontPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
             android:text="Til forsiden"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/SpilIgen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/msg"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintTop_toBottomOf="@+id/highScore" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

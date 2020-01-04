@@ -15,12 +15,14 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 //import com.example.galgeleg.Utility.Transaction_Fragments;
 
 public class Fragment_EndGame extends Fragment implements View.OnClickListener {
     String ordet;
     String udfald;
     Button tilHighscore;
+    Button spilIgen;
     Button frontPage;
     CalculatScore scoreCalculation;
     //Transaction_Fragments utilToFragment = new Transaction_Fragments();
@@ -42,6 +44,9 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         frontPage = view.findViewById(R.id.FrontPage);
         frontPage.setOnClickListener(this);
 
+        spilIgen = view.findViewById(R.id.SpilIgen);
+        spilIgen.setOnClickListener(this);
+
 
 
 
@@ -61,12 +66,17 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
 
 
     }
-    if(v==frontPage){
+    else if(v==frontPage){
 
         fragment = new Fragment1_Frontpage();
 
         basen.removeCurrentUser();
-    }
+    } else if(v==spilIgen){
+        fragment = new Fragment3_Game();
+
+
+        }
+
       transaction(fragment);
 
     }
