@@ -20,7 +20,6 @@ import com.example.galgeleg.R;
 public class Fragment_EndGame extends Fragment implements View.OnClickListener {
     String ordet;
     String udfald;
-    Intent i;
     Button tilHighscore;
     Button frontPage;
     CalculatScore scoreCalculation;
@@ -42,6 +41,9 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
 
         frontPage = view.findViewById(R.id.FrontPage);
         frontPage.setOnClickListener(this);
+
+
+
 
         return view;
 
