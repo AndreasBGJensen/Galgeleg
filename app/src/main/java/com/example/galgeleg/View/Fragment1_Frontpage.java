@@ -43,25 +43,34 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+
+        Fragment instance = null;
         if(v == startSpil){
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment2_config())
-                    .addToBackStack(null)
-                    .commit();
+
+                    instance = new Fragment2_config();
         }
 
         if(v == opretUser){
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment_addUser())
-                    .addToBackStack(null)
-                    .commit();
+                    instance = new Fragment_addUser();
         }
 
         if(v == highscore){
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment_Highscore())
-                    .addToBackStack(null)
-                    .commit();
+
+            instance = new Fragment_Highscore();
+
         }
+
+        transaction(instance);
+    }
+
+
+    /*
+    Private method to save some code when commit fragment
+     */
+    private void transaction(Fragment instance){
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragmentindhold,instance)
+                .addToBackStack(null)
+                .commit();
     }
 }

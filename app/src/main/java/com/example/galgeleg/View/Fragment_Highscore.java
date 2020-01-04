@@ -34,7 +34,7 @@ public class Fragment_Highscore extends Fragment {
 
         System.out.println(testList);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.listRecycleView);
+        recyclerView = view.findViewById(R.id.listRecycleView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ListViewAdapter(testList));
