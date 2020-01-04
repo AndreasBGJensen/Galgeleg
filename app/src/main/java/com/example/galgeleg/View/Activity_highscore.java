@@ -1,4 +1,4 @@
-package com.example.galgeleg.View;
+/*package com.example.galgeleg.View;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,3 +43,4 @@ public class Activity_highscore extends AppCompatActivity{
 
 
 }
+*/

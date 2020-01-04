@@ -1,6 +1,5 @@
 package com.example.galgeleg.View.Game;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.Activity_EndGame;
+import com.example.galgeleg.View.Fragment_EndGame;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private static Galgelogik logik = new Galgelogik();
@@ -93,14 +92,28 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
         if(logik.erSpilletTabt()||logik.erSpilletVundet()){
 
-            Intent i = new Intent(getActivity(), Activity_EndGame.class);
+            Fragment endgame = new Fragment_EndGame();
+
+            Bundle args = new Bundle();
+            args.putString("Winner",Outcome()[0]);
+            args.putString("ordetSomSkalGættes",Outcome()[1]);
+            args.putString("Antalforsøg",Outcome()[2]);
+            endgame.setArguments(args);
+            logik.nulstil();
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,endgame)
+                    .addToBackStack(null)
+                    .commit();
+
+
+           /* Intent i = new Intent(getActivity(), Fragment_EndGame.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());
             i.putExtra("Antalforsøg",logik.getBrugteBogstaver().size());
-            startActivity(i);
-            logik.nulstil();
-            return;
+            startActivity(i);*/
+
+
         }
 
 
@@ -113,6 +126,22 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
     }
 
+
+    private String[] Outcome(){
+        String[] feedback = new String[3];
+
+        if(logik.erSpilletVundet()){
+            feedback[0]= "Winner";
+        }else {
+            feedback[0]="Looser";
+        }
+        //Ordet som skulle gættes
+        feedback[1] = logik.getOrdet();
+
+        feedback[2] = Integer.toString(logik.getBrugteBogstaver().size());
+
+        return feedback;
+    }
 
 
 }

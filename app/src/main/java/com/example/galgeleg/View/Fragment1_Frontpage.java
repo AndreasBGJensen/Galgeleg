@@ -3,7 +3,7 @@ package com.example.galgeleg.View;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.Game.Fragment3_Game;
+
 
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
 
     Button startSpil;
     Button highscore;
     Button opretUser;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -44,7 +45,7 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
 
-        Fragment instance = null;
+        Fragment instance = new Fragment();
         if(v == startSpil){
 
                     instance = new Fragment2_config();
@@ -61,16 +62,20 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
         }
 
         transaction(instance);
+
+
+
     }
 
-
     /*
-    Private method to save some code when commit fragment
-     */
-    private void transaction(Fragment instance){
+      Method to save some code when commit fragment
+       */
+    public void transaction(Fragment instance){
+
         getFragmentManager().beginTransaction()
                 .replace(R.id.fragmentindhold,instance)
                 .addToBackStack(null)
                 .commit();
     }
+
 }
