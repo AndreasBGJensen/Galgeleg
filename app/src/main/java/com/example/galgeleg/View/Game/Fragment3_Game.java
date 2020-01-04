@@ -35,8 +35,6 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
-        Bundle args = getArguments();
-
 
         Database base = Database.getInstance(getContext());
         helloUser = view.findViewById(R.id.User);
