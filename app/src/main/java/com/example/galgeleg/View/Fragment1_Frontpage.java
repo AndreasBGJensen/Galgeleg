@@ -49,5 +49,19 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
                     .addToBackStack(null)
                     .commit();
         }
+
+        if(v == opretUser){
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment_addUser())
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+        if(v == highscore){
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment_addUser())
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }

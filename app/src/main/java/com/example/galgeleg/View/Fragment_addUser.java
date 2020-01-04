@@ -53,10 +53,13 @@ static int count=0;
                 username.setText("Username already Exist");
             }
         }
-        if(v==goBack){
 
-            ((MainActivity) getActivity()).setViewPager(0);
+        if(v==goBack){
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment1_Frontpage())
+                    .commit();
         }
+
     }
 }
 
