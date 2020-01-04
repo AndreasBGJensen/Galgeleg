@@ -59,7 +59,7 @@ public class Activity_EndGame extends AppCompatActivity implements View.OnClickL
 
     private String howDidItTurnOut(Intent i){
         Database basen = Database.getInstance(getApplicationContext());
-    Boolean winner = i.getBooleanExtra("Winner", false);
+        Boolean winner = i.getBooleanExtra("Winner", false);
         Boolean looser = i.getBooleanExtra("Looser", false);
         ordet = i.getStringExtra("ordetSomSkalGættes");
 

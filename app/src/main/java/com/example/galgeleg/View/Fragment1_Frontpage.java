@@ -45,7 +45,7 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if(v == startSpil){
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment3_Game())
+                    .replace(R.id.fragmentindhold,new Fragment2_config())
                     .addToBackStack(null)
                     .commit();
         }
@@ -59,7 +59,7 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
 
         if(v == highscore){
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment_addUser())
+                    .replace(R.id.fragmentindhold,new Fragment_Highscore())
                     .addToBackStack(null)
                     .commit();
         }

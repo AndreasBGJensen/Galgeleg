@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 
 public class Fragment2_config extends Fragment implements View.OnClickListener {
 
@@ -59,15 +61,24 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
                 //Place the player that i currently playing
                 base.setCurrentUser(enteredUsername);
                 //Navigate to fragment...
-                ((MainActivity) getActivity()).setViewPager(2);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentindhold,new Fragment3_Game())
+                        .addToBackStack(null)
+                        .commit();
             } else {
                 message.setText("You have entered a wrong username");
 
             }
         }else if(v==goBack){
-            ((MainActivity) getActivity()).setViewPager(0);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment1_Frontpage())
+                    .addToBackStack(null)
+                    .commit();
         }else if(v==createUser){
-            ((MainActivity) getActivity()).setViewPager(3);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment_addUser())
+                    .addToBackStack(null)
+                    .commit();
         }
 
 
