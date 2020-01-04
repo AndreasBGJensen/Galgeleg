@@ -25,16 +25,16 @@ public class Fragment_Highscore extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.highscore_listitem,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.fragment_highscoreliste,container,false);
         //Here i initializing alot of test users.
-        Database database = Database.getInstance(getActivity().getApplicationContext());
+        Database database = Database.getInstance(getContext());
 
         List<UserHighScoreDTO> testList =database.getUserScore();
         Collections.sort(testList);
 
         System.out.println(testList);
 
-        recyclerView = new RecyclerView(getActivity().getApplicationContext());
+        recyclerView = (RecyclerView) view.findViewById(R.id.listRecycleView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ListViewAdapter(testList));
