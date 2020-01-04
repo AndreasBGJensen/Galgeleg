@@ -51,7 +51,8 @@ Metoderne nedenfor tilgår SharedPreferences, hvor der laves CRUD operatoner på
 
 
     public boolean checkUser(String username){
-        if(pref.getAll().containsKey(username)){
+        clean();
+        if(pref.getAll().containsKey(username) || username.equals("User added") || username.equals("Username")){
             return true;
         }
         return false;
@@ -112,6 +113,29 @@ Metoderne nedenfor tilgår SharedPreferences, hvor der laves CRUD operatoner på
         pref.edit().remove("currentUser");
     }
 
+    /*
+    Deleting unwanted users, Denne metode blev er blevet oprettet efter at det er blevet sikret at der ikke kan oprettes en bruger med navnene "User name" eller Username.
+     */
 
+    private void clean(){
+
+
+        Map<String,?> allUsers = pref.getAll();
+
+
+        for (Map.Entry<String, ?> entry : allUsers.entrySet()) {
+
+            if(entry.getValue().toString().matches("\\d+")) {//Checking if the user list only contains username and a score
+                String key  = entry.getKey();
+                if(entry.getKey().equals("Username") || entry.getKey().equals("User added")){
+                    pref.edit().remove(key).apply();
+                }
+
+
+
+            }
+        }
+
+    }
 
 }

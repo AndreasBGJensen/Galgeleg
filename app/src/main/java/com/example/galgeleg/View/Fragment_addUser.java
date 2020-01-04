@@ -50,7 +50,7 @@ static int count=0;
             if (request) {
                 username.setText("User added");
             } else {
-                username.setText("Username already Exist");
+                username.setText("Not valid" );
             }
         }
 
@@ -61,6 +61,10 @@ static int count=0;
         }
 
     }
+
+
+
+
 }
 
 
