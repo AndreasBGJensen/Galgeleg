@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.galgeleg.R;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
 
@@ -42,18 +43,11 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        //Navigate to fragment...
-        if(v==startSpil) {
-            ((MainActivity) getActivity()).setViewPager(1);
+        if(v == startSpil){
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentindhold,new Fragment3_Game())
+                    .addToBackStack(null)
+                    .commit();
         }
-        if(v==highscore){
-            Intent i = new Intent(getContext(), Activity_highscore.class);
-            startActivity(i);
-        }
-        //Navigate to activity
-        if(v==opretUser){
-            ((MainActivity) getActivity()).setViewPager(3);
-        }
-
     }
 }
