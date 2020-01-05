@@ -110,10 +110,9 @@ Galgelogik logik = new Galgelogik();
                 System.out.println(logik.getMuligtOrd().get(i));
             }
 
+            //Source for this code snippet: https://developer.android.com/guide/topics/ui/notifiers/toasts
             Context context = getActivity();
-
             int duration = Toast.LENGTH_SHORT;
-
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
 
