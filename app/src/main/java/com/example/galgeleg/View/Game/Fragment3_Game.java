@@ -53,25 +53,9 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         errorIm = view.findViewById(R.id.errorIm);
 
         logik.logStatus();
-        class getMuligeOrd extends AsyncTask<String,String,String> {
+        lettersGuessed.setText(logik.getSynligtOrd());
 
-            @Override
-            protected String doInBackground(String...Strings) {
-                try {
-                    logik.hentOrdFraDr();
-                }catch (Exception e){
-                    System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
-                }
-                return logik.getSynligtOrd();
-            }
 
-            @Override
-            protected void onPostExecute(String s) {
-                lettersGuessed.setText(s);
-            }
-        }
-
-         new getMuligeOrd().execute();
 
         return view;
 
@@ -147,6 +131,8 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
 
 }
+
+
 
 
 

@@ -4,17 +4,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 
 
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
-
+Galgelogik logik = new Galgelogik();
     Button startSpil;
     Button highscore;
     Button opretUser;
@@ -34,6 +36,11 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
 
         opretUser = view.findViewById(R.id.opretUser);
         opretUser.setOnClickListener(this);
+
+
+        //Indhenter ord fra dr i for at når dette fragment laves for at alle ord er tilstede når spillet går igang.
+        AsyncTask1 AsyncTask = new AsyncTask1();
+        AsyncTask.execute();
 
         return view;
     }
@@ -76,6 +83,29 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
                 .replace(R.id.fragmentindhold,instance)
                 .addToBackStack(null)
                 .commit();
+    }
+
+
+    class AsyncTask1 extends AsyncTask<String,String,String> {
+
+        @Override
+        protected String doInBackground(String...Strings) {
+            try {
+                logik.hentOrdFraDr();
+
+            }catch (Exception e){
+                System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
+                e.printStackTrace();
+            }
+            return logik.getSynligtOrd();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            for(int i = 0; i<logik.getMuligtOrd().size();i++){
+                System.out.println(logik.getMuligtOrd().get(i));
+            }
+        }
     }
 
 }

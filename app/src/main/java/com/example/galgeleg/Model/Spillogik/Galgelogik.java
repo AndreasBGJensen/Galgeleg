@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Galgelogik {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
-    ArrayList<String> muligeOrd = new ArrayList<String>();
+    static ArrayList<String> muligeOrd = new ArrayList<String>();//Denne liste er lavet static for at der kan oprettes et objekt til at hente ord fra DR i Fragment_frontpage
     private String ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;
@@ -25,7 +25,7 @@ public class Galgelogik {
 
 
     public Galgelogik() {
-        muligeOrd.add("bil");
+      muligeOrd.add("bil");
 
         muligeOrd.add("computer");
         muligeOrd.add("programmering");
@@ -38,6 +38,10 @@ public class Galgelogik {
         nulstil();
     }
 
+
+    public ArrayList<String> getMuligtOrd(){
+        return muligeOrd;
+    }
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
