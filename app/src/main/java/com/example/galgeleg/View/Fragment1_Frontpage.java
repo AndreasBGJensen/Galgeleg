@@ -4,12 +4,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
@@ -87,7 +89,7 @@ Galgelogik logik = new Galgelogik();
 
 
     class AsyncTask1 extends AsyncTask<String,String,String> {
-
+        CharSequence text = "Downloaded ord fra DR!";
         @Override
         protected String doInBackground(String...Strings) {
             try {
@@ -95,7 +97,9 @@ Galgelogik logik = new Galgelogik();
 
             }catch (Exception e){
                 System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
+                text = "Kunne ikke downloade ord fra DR!";
                 e.printStackTrace();
+
             }
             return logik.getSynligtOrd();
         }
@@ -105,6 +109,14 @@ Galgelogik logik = new Galgelogik();
             for(int i = 0; i<logik.getMuligtOrd().size();i++){
                 System.out.println(logik.getMuligtOrd().get(i));
             }
+
+            Context context = getActivity();
+
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
         }
     }
 
