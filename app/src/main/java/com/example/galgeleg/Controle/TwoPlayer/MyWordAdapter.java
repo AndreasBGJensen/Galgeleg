@@ -1,6 +1,6 @@
 package com.example.galgeleg.Controle.TwoPlayer;
 
-import android.content.Context;
+
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.galgeleg.R;
 import java.util.ArrayList;
