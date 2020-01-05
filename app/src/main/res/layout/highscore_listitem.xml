@@ -23,8 +23,7 @@
         android:layout_marginLeft="123dp"
         android:layout_toEndOf="@+id/username"
         android:layout_toRightOf="@+id/username"
-
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

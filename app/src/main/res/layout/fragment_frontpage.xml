@@ -13,17 +13,16 @@
         android:layout_height="130dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:layout_marginBottom="68dp"
         android:bufferType="spannable"
         android:capitalize="words"
         android:text="Single Player"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/opretUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.855" />
 
     <TextView
         android:id="@+id/Title"
@@ -41,19 +40,6 @@
 
 
     <Button
-        android:id="@+id/TwoPlayer"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:text="TWO PLAYER"
-        app:layout_constraintEnd_toStartOf="@+id/PlayButton"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/highscore"
         android:layout_width="130dp"
         android:layout_height="130dp"
@@ -61,12 +47,14 @@
         android:layout_marginLeft="42dp"
         android:layout_marginEnd="122dp"
         android:layout_marginRight="122dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginBottom="263dp"
         android:text="HIGHSCORE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/opretUser"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TwoPlayer"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/opretUser"
@@ -80,5 +68,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/TwoPlayer"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="176dp"
+        android:text="TWO PLAYER"
+        app:layout_constraintEnd_toStartOf="@+id/PlayButton"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

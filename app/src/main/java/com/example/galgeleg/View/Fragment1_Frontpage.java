@@ -18,10 +18,11 @@ import com.example.galgeleg.R;
 
 
 public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
-Galgelogik logik = new Galgelogik();
+
     Button startSpil;
     Button highscore;
     Button opretUser;
+    Button twoPlayer;
 
 
     @Override
@@ -39,10 +40,11 @@ Galgelogik logik = new Galgelogik();
         opretUser = view.findViewById(R.id.opretUser);
         opretUser.setOnClickListener(this);
 
+        twoPlayer = view.findViewById(R.id.TwoPlayer);
+        twoPlayer.setOnClickListener(this);
 
-        //Indhenter ord fra dr i for at når dette fragment laves for at alle ord er tilstede når spillet går igang.
-        AsyncTask1 AsyncTask = new AsyncTask1();
-        AsyncTask.execute();
+
+
 
         return view;
     }
@@ -70,6 +72,10 @@ Galgelogik logik = new Galgelogik();
 
         }
 
+        if(v == twoPlayer){
+            instance = new Fragment_TwoPlayer();
+        }
+
         transaction(instance);
 
 
@@ -88,35 +94,6 @@ Galgelogik logik = new Galgelogik();
     }
 
 
-    class AsyncTask1 extends AsyncTask<String,String,String> {
-        CharSequence text = "Downloaded ord fra DR!";
-        @Override
-        protected String doInBackground(String...Strings) {
-            try {
-                logik.hentOrdFraDr();
 
-            }catch (Exception e){
-                System.out.println("Noget gik galt da jeg skulle hente ord fra DR");
-                text = "Kunne ikke downloade ord fra DR!";
-                e.printStackTrace();
-
-            }
-            return logik.getSynligtOrd();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            for(int i = 0; i<logik.getMuligtOrd().size();i++){
-                System.out.println(logik.getMuligtOrd().get(i));
-            }
-
-            //Source for this code snippet: https://developer.android.com/guide/topics/ui/notifiers/toasts
-            Context context = getActivity();
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-
-        }
-    }
 
 }
