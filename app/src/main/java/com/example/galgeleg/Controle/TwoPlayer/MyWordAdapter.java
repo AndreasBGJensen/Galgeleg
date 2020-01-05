@@ -1,4 +1,4 @@
-package com.example.galgeleg.Controle;
+package com.example.galgeleg.Controle.TwoPlayer;
 
 import android.view.ViewGroup;
 
