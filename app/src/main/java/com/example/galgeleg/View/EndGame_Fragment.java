@@ -1,6 +1,5 @@
 package com.example.galgeleg.View;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Model.Database.Database;
@@ -18,7 +16,7 @@ import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 //import com.example.galgeleg.Utility.Transaction_Fragments;
 
-public class Fragment_EndGame extends Fragment implements View.OnClickListener {
+public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     String ordet;
     String udfald;
     Button tilHighscore;
@@ -62,13 +60,13 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         Fragment fragment = null;
         Database basen = Database.getInstance(getActivity().getApplicationContext());
     if(v== tilHighscore) {
-        fragment = new Fragment_Highscore();
+        fragment = new Highscore_Fragment();
 
 
     }
     else if(v==frontPage){
 
-        fragment = new Fragment1_Frontpage();
+        fragment = new Frontpage_Fragment();
 
         basen.removeCurrentUser();
     } else if(v==spilIgen){

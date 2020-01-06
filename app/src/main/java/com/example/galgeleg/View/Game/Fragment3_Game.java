@@ -1,6 +1,5 @@
 package com.example.galgeleg.View.Game;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.Fragment_EndGame;
+import com.example.galgeleg.View.EndGame_Fragment;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private static Galgelogik logik = new Galgelogik();
@@ -87,7 +86,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
         if(logik.erSpilletTabt()||logik.erSpilletVundet()){
 
-            Fragment endgame = new Fragment_EndGame();
+            Fragment endgame = new EndGame_Fragment();
 
             Bundle args = new Bundle();
             args.putString("Winner",Outcome()[0]);
@@ -106,7 +105,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
                     .commit();
 
 
-           /* Intent i = new Intent(getActivity(), Fragment_EndGame.class);
+           /* Intent i = new Intent(getActivity(), EndGame_Fragment.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());

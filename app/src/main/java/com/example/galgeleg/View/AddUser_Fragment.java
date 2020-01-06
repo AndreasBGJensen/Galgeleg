@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;
 
-public class Fragment_addUser extends Fragment implements View.OnClickListener {
+public class AddUser_Fragment extends Fragment implements View.OnClickListener {
 Button submit;
 EditText username;
     Button goBack;
@@ -56,7 +56,7 @@ static int count=0;
 
         if(v==goBack){
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment1_Frontpage())
+                    .replace(R.id.fragmentindhold,new Frontpage_Fragment())
                     .commit();
         }
 

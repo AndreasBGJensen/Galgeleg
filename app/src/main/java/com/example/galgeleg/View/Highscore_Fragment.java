@@ -18,7 +18,7 @@ import com.example.galgeleg.R;
 import java.util.Collections;
 import java.util.List;
 
-public class Fragment_Highscore extends Fragment {
+public class Highscore_Fragment extends Fragment {
 
 
     RecyclerView recyclerView;

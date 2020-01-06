@@ -21,7 +21,7 @@ import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 
 
-public class Fragment_TwoPlayer extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     Galgelogik logik = new Galgelogik();
     RecyclerView recyclerView;
     Spinner spinner;
