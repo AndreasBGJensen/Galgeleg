@@ -18,14 +18,14 @@ import com.example.galgeleg.R;
 import java.util.Collections;
 import java.util.List;
 
-public class Fragment_Highscore extends Fragment {
+public class Highscore_Fragment extends Fragment {
 
 
     RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_highscoreliste,container,false);
+        View view = inflater.inflate(R.layout.highscore_fragment_liste,container,false);
         //Here i initializing alot of test users.
         Database database = Database.getInstance(getContext());
 

@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.Fragment_EndGame"/>
+        <activity android:name=".View.EndGame_Fragment"/>
         <activity android:name=".View.Activity_highscore"/>
 
 

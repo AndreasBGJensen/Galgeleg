@@ -44,7 +44,7 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
 
     public void run() {
         if (getActivity()==null) return; // Hvis brugeren er hoppet ud af aktiviteten
-        Fragment fragment = new Fragment1_Frontpage();
+        Fragment fragment = new Frontpage_Fragment();
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.fragmentindhold, fragment)  // tom container i layout

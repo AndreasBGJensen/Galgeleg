@@ -1,6 +1,5 @@
 package com.example.galgeleg.View.Game;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
-import com.example.galgeleg.View.Fragment_EndGame;
+import com.example.galgeleg.View.EndGame_Fragment;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private static Galgelogik logik = new Galgelogik();
@@ -35,6 +34,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
+        Bundle args = getArguments();
 
         Database base = Database.getInstance(getContext());
         helloUser = view.findViewById(R.id.User);
@@ -53,10 +53,18 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         errorIm = view.findViewById(R.id.errorIm);
 
         logik.logStatus();
+
+
+        if(args != null){
+            if(args.getString("Two Player")!=null) {
+                helloUser.setText(args.getString("Two Player"));
+                System.out.println(args.getString("choosenWord"));
+                logik.setOrdet(args.getString("choosenWord"));
+                System.out.println(logik.getOrdet());
+                logik.opdaterSynligtOrd();
+            }
+        }
         lettersGuessed.setText(logik.getSynligtOrd());
-
-
-
         return view;
 
     }
@@ -89,12 +97,17 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
         if(logik.erSpilletTabt()||logik.erSpilletVundet() || logik.erSpilletSlut()){
 
-            Fragment endgame = new Fragment_EndGame();
+            Fragment endgame = new EndGame_Fragment();
 
             Bundle args = new Bundle();
             args.putString("Winner",Outcome()[0]);
             args.putString("ordetSomSkalGættes",Outcome()[1]);
             args.putString("Antalforsøg",Outcome()[2]);
+
+            if(args.getString("Two Player")!=null){
+                args.putString("Two Player", "Hello My best friend");
+            }
+
             endgame.setArguments(args);
             logik.nulstil();
             getFragmentManager().beginTransaction()
@@ -103,7 +116,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
                     .commit();
 
 
-           /* Intent i = new Intent(getActivity(), Fragment_EndGame.class);
+           /* Intent i = new Intent(getActivity(), EndGame_Fragment.class);
             i.putExtra("Winner",logik.erSpilletVundet());
             i.putExtra("Looser",logik.erSpilletTabt());
             i.putExtra("ordetSomSkalGættes",logik.getOrdet());

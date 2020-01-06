@@ -3,12 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/WordsRecyclerView"
+    <TextView
+        android:id="@+id/SpinnerOrd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        />
-
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>
-

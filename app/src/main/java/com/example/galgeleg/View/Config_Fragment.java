@@ -1,6 +1,5 @@
 package com.example.galgeleg.View;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 
-public class Fragment2_config extends Fragment implements View.OnClickListener {
+public class Config_Fragment extends Fragment implements View.OnClickListener {
 
     TextView message;
     EditText submitUser;
@@ -27,7 +25,7 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_config_layout,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.config_fragment_layout,container,false); //Why do we not attatch to root????
         Database base = Database.getInstance(getContext());
         base.removeCurrentUser();
         message = view.findViewById(R.id.message);
@@ -86,12 +84,12 @@ public class Fragment2_config extends Fragment implements View.OnClickListener {
             }
         }else if(v==goBack){
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment1_Frontpage())
+                    .replace(R.id.fragmentindhold,new Frontpage_Fragment())
                     .addToBackStack(null)
                     .commit();
         }else if(v==createUser){
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentindhold,new Fragment_addUser())
+                    .replace(R.id.fragmentindhold,new AddUser_Fragment())
                     .addToBackStack(null)
                     .commit();
         }

@@ -4,20 +4,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 
 
-public class Fragment1_Frontpage extends Fragment implements View.OnClickListener {
+public class Frontpage_Fragment extends Fragment implements View.OnClickListener {
 
     Button startSpil;
     Button highscore;
@@ -27,7 +23,7 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_frontpage,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.frontpage_fragment,container,false); //Why do we not attatch to root????
 
 
         startSpil = view.findViewById(R.id.PlayButton);
@@ -59,21 +55,21 @@ public class Fragment1_Frontpage extends Fragment implements View.OnClickListene
         Fragment instance = new Fragment();
         if(v == startSpil){
 
-                    instance = new Fragment2_config();
+                    instance = new Config_Fragment();
         }
 
         if(v == opretUser){
-                    instance = new Fragment_addUser();
+                    instance = new AddUser_Fragment();
         }
 
         if(v == highscore){
 
-            instance = new Fragment_Highscore();
+            instance = new Highscore_Fragment();
 
         }
 
         if(v == twoPlayer){
-            instance = new Fragment_TwoPlayer();
+            instance = new TwoPlayer_Fragment();
         }
 
         transaction(instance);

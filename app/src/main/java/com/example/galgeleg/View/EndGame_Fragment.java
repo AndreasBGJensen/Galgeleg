@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Model.Database.Database;
@@ -20,7 +19,7 @@ import com.example.galgeleg.View.Game.Fragment3_Game;
 import com.github.jinatonic.confetti.CommonConfetti;
 //import com.example.galgeleg.Utility.Transaction_Fragments;
 
-public class Fragment_EndGame extends Fragment implements View.OnClickListener {
+public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     String ordet;
     String udfald;
     Button tilHighscore;
@@ -32,7 +31,7 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.winner_layout,container,false);
+        View view = inflater.inflate(R.layout.endgame_fragment_layout,container,false);
 
         Bundle args = getArguments();
 
@@ -66,13 +65,13 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         Fragment fragment = null;
         Database basen = Database.getInstance(getActivity().getApplicationContext());
     if(v== tilHighscore) {
-        fragment = new Fragment_Highscore();
+        fragment = new Highscore_Fragment();
 
 
     }
     else if(v==frontPage){
 
-        fragment = new Fragment1_Frontpage();
+        fragment = new Frontpage_Fragment();
 
         basen.removeCurrentUser();
     } else if(v==spilIgen){
@@ -104,10 +103,9 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         ordet = args.getString("ordetSomSkalGættes");
 
 
-
-        if(args.getString("Winner").equals("Winner")){
+        if (args.getString("Winner").equals("Winner")) {
             winner = true;
-        } else if (args.getString("Winner").equals("Looser")){
+        } else if (args.getString("Winner").equals("Looser")) {
             looser = true;
         }
 
@@ -121,13 +119,25 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
             udfald = "Tillykke du gætte ordet på "+args.getString("Antalforsøg")+" forsøg\n Ordet var:\n "+ordet;
             String newScorePoints = args.getString("Antalforsøg");
             String user = basen.getCurrentUser();
-            scoreCalculation = new CalculatScore(basen.getUser(user),newScorePoints);
+
+
+
+            /*Hvis der ikke spilles two player skal der ikke lægges to point til. Dette bliver kontrolleret ved at hente et objekt fra ShearedPreferences
+            Som kun bliver lavet, hvis at der spilles two player
+             */
+
+            if (args.getString("Two Player")==null) {
+                scoreCalculation = new CalculatScore(basen.getUser(user), newScorePoints);
 
             basen.updateUser(basen.getCurrentUser(),scoreCalculation.getNewScore());
 
+            } else {
+                basen.setCurrentUser("My best friend");
+            }
+
         }
+
         return udfald;
     }
-
 }
 
