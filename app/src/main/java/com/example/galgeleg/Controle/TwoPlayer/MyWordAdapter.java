@@ -1,4 +1,4 @@
-/*package com.example.galgeleg.Controle.TwoPlayer;
+package com.example.galgeleg.Controle.TwoPlayer;
 
 
 import android.view.ViewGroup;
@@ -27,7 +27,7 @@ public class MyWordAdapter extends RecyclerView.Adapter<MyWordAdapter.ListViewHo
     @Override
     public MyWordAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.MyWordAdapter_twoplayer_item, parent, false);
+                .inflate(R.layout.mywordadapter_twoplayer_item, parent, false);
 
         MyWordAdapter.ListViewHolder vh = new MyWordAdapter.ListViewHolder(itemView);
         vh.ord= itemView.findViewById(R.id.Ord);
@@ -78,4 +78,3 @@ public class MyWordAdapter extends RecyclerView.Adapter<MyWordAdapter.ListViewHo
 
 
 
-*/
