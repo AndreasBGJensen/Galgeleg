@@ -35,6 +35,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
+        Bundle args = getArguments();
 
         Database base = Database.getInstance(getContext());
         helloUser = view.findViewById(R.id.User);
@@ -53,10 +54,18 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         errorIm = view.findViewById(R.id.errorIm);
 
         logik.logStatus();
+
+
+        if(args != null){
+            if(args.getString("Two Player")!=null) {
+                helloUser.setText(args.getString("Two Player"));
+                System.out.println(args.getString("choosenWord"));
+                logik.setOrdet(args.getString("choosenWord"));
+                System.out.println(logik.getOrdet());
+                logik.opdaterSynligtOrd();
+            }
+        }
         lettersGuessed.setText(logik.getSynligtOrd());
-
-
-
         return view;
 
     }
@@ -84,6 +93,11 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             args.putString("Winner",Outcome()[0]);
             args.putString("ordetSomSkalGættes",Outcome()[1]);
             args.putString("Antalforsøg",Outcome()[2]);
+
+            if(args.getString("Two Player")!=null){
+                args.putString("Two Player", "Hello My best friend");
+            }
+
             endgame.setArguments(args);
             logik.nulstil();
             getFragmentManager().beginTransaction()

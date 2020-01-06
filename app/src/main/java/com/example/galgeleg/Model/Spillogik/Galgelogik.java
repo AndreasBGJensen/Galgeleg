@@ -47,6 +47,10 @@ public class Galgelogik {
         return brugteBogstaver;
     }
 
+    public void setOrdet(String nytOrd){
+        ordet = nytOrd;
+    }
+
     public String getSynligtOrd() {
         return synligtOrd;
     }
@@ -85,8 +89,8 @@ public class Galgelogik {
         opdaterSynligtOrd();
     }
 
-
-    private void opdaterSynligtOrd() {
+//Denne metode er lavet til en public metode for at jeg kan tilgå den i Fragment_Game i twoplayer mode.
+    public void opdaterSynligtOrd() {
         synligtOrd = "";
         spilletErVundet = true;
         for (int n = 0; n < ordet.length(); n++) {

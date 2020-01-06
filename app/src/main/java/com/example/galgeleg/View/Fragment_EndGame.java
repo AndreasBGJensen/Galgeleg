@@ -93,7 +93,7 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
     }
 
 
-    private String howDidItTurnOut(Bundle args){
+    private String howDidItTurnOut(Bundle args) {
         Database basen = Database.getInstance(getActivity().getApplicationContext());
         Boolean winner = false;
         Boolean looser = false;
@@ -101,31 +101,42 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         ordet = args.getString("ordetSomSkalGættes");
 
 
-
-        if(args.getString("Winner").equals("Winner")){
+        if (args.getString("Winner").equals("Winner")) {
             winner = true;
-        } else if (args.getString("Winner").equals("Looser")){
+        } else if (args.getString("Winner").equals("Looser")) {
             looser = true;
         }
 
 
-        if(looser){
+        if (looser) {
 
             udfald = "Du har desværre tabt spillet\n Ordet du skulle gætte var " + ordet;
 
-        }else if(winner){
+        } else if (winner) {
 
-            udfald = "Tillykke du gætte ordet på "+args.getString("Antalforsøg")+" forsøg\n Ordet var:\n "+ordet;
+            udfald = "Tillykke du gætte ordet på " + args.getString("Antalforsøg") + " forsøg\n Ordet var:\n " + ordet;
             String newScorePoints = args.getString("Antalforsøg");
             String user = basen.getCurrentUser();
-            scoreCalculation = new CalculatScore(basen.getUser(user),newScorePoints);
 
-            basen.updateUser(basen.getCurrentUser(),scoreCalculation.getNewScore());
+
+
+            /*Hvis der ikke spilles two player skal der ikke lægges to point til. Dette bliver kontrolleret ved at hente et objekt fra ShearedPreferences
+            Som kun bliver lavet, hvis at der spilles two player
+             */
+
+            if (args.getString("Two Player")==null) {
+                scoreCalculation = new CalculatScore(basen.getUser(user), newScorePoints);
+
+                basen.updateUser(basen.getCurrentUser(), scoreCalculation.getNewScore());
+
+            } else {
+                basen.setCurrentUser("My best friend");
+            }
 
         }
+
         return udfald;
     }
-
 /*
     private String howDidItTurnOut(Intent i){
         Database basen = Database.getInstance(getActivity().getApplicationContext());
