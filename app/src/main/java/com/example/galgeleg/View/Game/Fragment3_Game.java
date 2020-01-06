@@ -76,7 +76,18 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if(logik.erSpilletTabt()||logik.erSpilletVundet()){
+
+
+
+        logik.gætBogstav(letterInput.getText().toString());
+        gæt.setText(logik.getBrugteBogstaver().toString());
+        lettersGuessed.setText(logik.getSynligtOrd());
+        letterInput.setText("");
+
+        imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
+
+
+        if(logik.erSpilletTabt()||logik.erSpilletVundet() || logik.erSpilletSlut()){
 
             Fragment endgame = new Fragment_EndGame();
 
@@ -101,14 +112,6 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
 
         }
-
-
-        logik.gætBogstav(letterInput.getText().toString());
-        gæt.setText(logik.getBrugteBogstaver().toString());
-        lettersGuessed.setText(logik.getSynligtOrd());
-        letterInput.setText("");
-
-        imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
     }
 
