@@ -135,32 +135,5 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         return udfald;
     }
-/*
-    private String howDidItTurnOut(Intent i){
-        Database basen = Database.getInstance(getActivity().getApplicationContext());
-        Boolean winner = i.getBooleanExtra("Winner", false);
-        Boolean looser = i.getBooleanExtra("Looser", false);
-        ordet = i.getStringExtra("ordetSomSkalGættes");
-
-            if(looser){
-
-                udfald = "Du har desværre tabt spillet\n Ordet du skulle gætte var " + ordet;
-
-            }else if(winner){
-
-                udfald = "Tillykke du gætte ordet på "+i.getStringExtra("Antalforsøg")+" forsøg\n Ordet var:\n "+ordet;
-                String user = basen.getCurrentUser();
-                String newScorePoints = i.getStringExtra("Antalforsøg");
-                scoreCalculation = new CalculatScore(basen.getUser(user),newScorePoints);
-
-                basen.updateUser(basen.getCurrentUser(),scoreCalculation.getNewScore());
-
-            }
-
-            return udfald;
-        }
-*/
-
-
 }
 

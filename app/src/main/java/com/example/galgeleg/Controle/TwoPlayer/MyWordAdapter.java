@@ -27,7 +27,7 @@ public class MyWordAdapter extends RecyclerView.Adapter<MyWordAdapter.ListViewHo
     @Override
     public MyWordAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.twoplayer_item, parent, false);
+                .inflate(R.layout.MyWordAdapter_twoplayer_item, parent, false);
 
         MyWordAdapter.ListViewHolder vh = new MyWordAdapter.ListViewHolder(itemView);
         vh.ord= itemView.findViewById(R.id.Ord);
