@@ -12,18 +12,18 @@
         app:layout_constraintStart_toStartOf="@+id/User">
 
 
-
-
         <TextView
             android:id="@+id/guessedLetters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="504dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.539"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.289" />
+            app:layout_constraintTop_toBottomOf="@+id/User"
+            app:layout_constraintVertical_bias="0.536" />
 
         <EditText
             android:id="@+id/letterInput"
@@ -35,9 +35,10 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/ErrorImage"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.642"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.711" />
+            app:layout_constraintVertical_bias="0.134" />
 
         <Button
             android:id="@+id/submit"
@@ -78,14 +79,12 @@
             android:id="@+id/ForkerteGæt"
             android:layout_width="160dp"
             android:layout_height="45dp"
-            android:layout_marginTop="136dp"
+            android:layout_marginBottom="24dp"
             android:text="Ord du har gættet på"
             app:layout_constraintBottom_toTopOf="@+id/guessedLetters"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.243" />
+            app:layout_constraintHorizontal_bias="0.553"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/User"
@@ -99,7 +98,7 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365" />
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
