@@ -1,6 +1,7 @@
 package com.example.galgeleg.View;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
+import com.github.jinatonic.confetti.CommonConfetti;
 //import com.example.galgeleg.Utility.Transaction_Fragments;
 
 public class Fragment_EndGame extends Fragment implements View.OnClickListener {
@@ -34,6 +36,11 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
 
         Bundle args = getArguments();
 
+        //Adding the confetti animation
+        if(args.getString("Winner").equals("Winner")) {
+            CommonConfetti.rainingConfetti(container, new int[]{Color.BLACK})
+                    .oneShot(); //Only one shot of confetti will be rendered
+        }
 
         TextView endGameMsg = view.findViewById(R.id.msg);
         //endGameMsg.setText(howDidItTurnOut(i));
@@ -46,9 +53,6 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
 
         spilIgen = view.findViewById(R.id.SpilIgen);
         spilIgen.setOnClickListener(this);
-
-
-
 
         return view;
 
@@ -73,7 +77,6 @@ public class Fragment_EndGame extends Fragment implements View.OnClickListener {
         basen.removeCurrentUser();
     } else if(v==spilIgen){
         fragment = new Fragment3_Game();
-
 
         }
 
