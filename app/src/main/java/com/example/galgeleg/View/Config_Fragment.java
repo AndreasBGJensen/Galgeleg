@@ -25,7 +25,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_config_layout,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.config_fragment_layout,container,false); //Why do we not attatch to root????
         Database base = Database.getInstance(getContext());
         base.removeCurrentUser();
         message = view.findViewById(R.id.message);

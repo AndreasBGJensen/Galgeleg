@@ -25,7 +25,7 @@ static int count=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.activity_adduser,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.adduser_fragment_layout,container,false); //Why do we not attatch to root????
 
 
         submit = view.findViewById(R.id.submit);

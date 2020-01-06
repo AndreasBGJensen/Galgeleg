@@ -23,7 +23,7 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_frontpage,container,false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.frontpage_fragment,container,false); //Why do we not attatch to root????
 
 
         startSpil = view.findViewById(R.id.PlayButton);

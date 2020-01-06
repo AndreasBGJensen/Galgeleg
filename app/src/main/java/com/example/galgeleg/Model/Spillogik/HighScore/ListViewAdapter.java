@@ -27,7 +27,7 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.ListVi
     public ListViewAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.highscore_listitem, parent, false);
+                    .inflate(R.layout.highscore_fragment_listitem, parent, false);
 
             ListViewAdapter.ListViewHolder vh = new ListViewAdapter.ListViewHolder(itemView);
             vh.user = itemView.findViewById(R.id.username);

@@ -28,7 +28,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.winner_layout,container,false);
+        View view = inflater.inflate(R.layout.endgame_fragment_layout,container,false);
 
         Bundle args = getArguments();
 

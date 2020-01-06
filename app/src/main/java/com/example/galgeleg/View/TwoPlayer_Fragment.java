@@ -8,14 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.galgeleg.Controle.TwoPlayer.MyWordAdapter;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
@@ -30,7 +27,7 @@ public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSe
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_twoplayer, container, false); //Why do we not attatch to root????
+        View view = inflater.inflate(R.layout.twoplayer_fragment_layout, container, false); //Why do we not attatch to root????
 
 
 
@@ -46,8 +43,8 @@ public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSe
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //recyclerView.setAdapter(new MyWordAdapter(logik.getMuligtOrd()));
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, R.id.SpinnerOrd, logik.getMuligtOrd());
-        adapter.setDropDownViewResource(R.layout.spinnerlayout);
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.twoplayer_fragment_spinner_item_layout, R.id.SpinnerOrd, logik.getMuligtOrd());
+        adapter.setDropDownViewResource(R.layout.twoplayer_fragment_spinner_item_layout);
 
         spinner.setAdapter(adapter);
 
