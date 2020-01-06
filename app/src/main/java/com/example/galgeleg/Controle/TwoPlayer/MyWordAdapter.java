@@ -1,4 +1,4 @@
-package com.example.galgeleg.Controle.TwoPlayer;
+/*package com.example.galgeleg.Controle.TwoPlayer;
 
 
 import android.view.ViewGroup;
@@ -78,3 +78,4 @@ public class MyWordAdapter extends RecyclerView.Adapter<MyWordAdapter.ListViewHo
 
 
 
+*/
