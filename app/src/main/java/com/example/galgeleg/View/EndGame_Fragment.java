@@ -65,7 +65,12 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
         Fragment fragment = null;
         Database basen = Database.getInstance(getActivity().getApplicationContext());
     if(v== tilHighscore) {
+
         fragment = new Highscore_Fragment();
+        getFragmentManager().beginTransaction()
+                .add(R.id.fragmentindhold,fragment)
+                .addToBackStack(null)
+                .commit();
 
 
     }
