@@ -79,12 +79,13 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
         fragment = new Frontpage_Fragment();
 
         basen.removeCurrentUser();
+        transaction(fragment);
     } else if(v==spilIgen){
         fragment = new Fragment3_Game();
-
+        transaction(fragment);
         }
 
-      transaction(fragment);
+
 
     }
 
@@ -95,7 +96,6 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.fragmentindhold,instance)
-                .addToBackStack(null)
                 .commit();
     }
 

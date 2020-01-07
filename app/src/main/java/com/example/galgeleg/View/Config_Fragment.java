@@ -32,7 +32,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
         submitUser = view.findViewById(R.id.submitUser);
 
 
-        continueButton = view.findViewById(R.id.PressButton);
+        continueButton = view.findViewById(R.id.config_continue);
         continueButton.setOnClickListener(this);
 
         goBack = view.findViewById(R.id.toFront);
@@ -55,6 +55,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
         String enteredUsername = submitUser.getText().toString();
 
         if(v == continueButton) {
+            submitUser.setText("");
             if (base.checkUser(enteredUsername)) {
                 //Place the player that i currently playing
                 base.setCurrentUser(enteredUsername);
@@ -69,14 +70,15 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
                  */
                 Fragment fragment = new Fragment3_Game();
 
-                Bundle args = new Bundle();
+
+                //Delete this this is not used
+               /* Bundle args = new Bundle();
                 args.putString("UserPlaying",enteredUsername);
-
-                fragment.setArguments(args);
-
+                fragment.setArguments(args);*
+*/
                 getFragmentManager().beginTransaction()
                         .replace(R.id.fragmentindhold,fragment)
-                        .addToBackStack(null)
+
                         .commit();
             } else {
                 message.setText("You have entered a wrong username");

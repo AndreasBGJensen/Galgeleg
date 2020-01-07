@@ -34,6 +34,8 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
+        //This is set so that it will not save ole guessedletters due to static variable
+        logik.nulstil();
         Bundle args = getArguments();
 
         Database base = Database.getInstance(getContext());
@@ -99,6 +101,8 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
             Fragment endgame = new EndGame_Fragment();
 
+            //Create a bundle to passe information to the endGame:Fragment
+            //TODO: Change passing information by bundle
             Bundle args = new Bundle();
             args.putString("Winner",Outcome()[0]);
             args.putString("ordetSomSkalGættes",Outcome()[1]);
@@ -112,7 +116,6 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             logik.nulstil();
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragmentindhold,endgame)
-                    .addToBackStack(null)
                     .commit();
 
 

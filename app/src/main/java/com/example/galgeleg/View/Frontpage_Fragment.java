@@ -52,27 +52,37 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
-        Fragment instance = new Fragment();
+        //TODO: Make Fragments appear from bottoom
+
+        Fragment instance;
         if(v == startSpil){
 
                     instance = new Config_Fragment();
+            transaction(instance);
         }
 
         if(v == opretUser){
                     instance = new AddUser_Fragment();
+            transaction(instance);
         }
 
         if(v == highscore){
 
             instance = new Highscore_Fragment();
+            getFragmentManager().beginTransaction()
+                    //.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
+                    .replace(R.id.fragmentindhold,instance)
+                    .addToBackStack(null)
+                    .commit();
 
         }
 
         if(v == twoPlayer){
             instance = new TwoPlayer_Fragment();
+            transaction(instance);
         }
 
-        transaction(instance);
+
 
 
 
