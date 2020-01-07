@@ -23,12 +23,21 @@
         tools:text="HANGMAN"
         />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:text="This game i all about surviving\n Lets see how you will do\n\n You have to guess the letters that \n the word consists of.\n \n"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="0dp"
         android:orientation="horizontal">
 
             <Button
