@@ -74,7 +74,7 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
 
             instance = new Highscore_Fragment();
             getFragmentManager().beginTransaction()
-                    //.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .addToBackStack(null)
                     .replace(R.id.fragmentindhold,instance)
 
@@ -93,6 +93,7 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
        */
     public void transaction(Fragment instance){
         getFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.fragmentindhold,instance)
                 .addToBackStack(null)
                 .commit();

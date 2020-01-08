@@ -61,22 +61,9 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
                 base.setCurrentUser(enteredUsername);
                 //Navigate to fragment...
 
-
-
-                /*
-                Creating a Bundle and passing it to the Fragment Fragment3_Game
-                This could have be done by just loading the usename from the PreferenceManager
-                But i choose to do do it like this.
-                 */
                 Fragment fragment = new Fragment3_Game();
-
-
-                //Delete this this is not used
-               /* Bundle args = new Bundle();
-                args.putString("UserPlaying",enteredUsername);
-                fragment.setArguments(args);*
-*/
                 getFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                         .replace(R.id.fragmentindhold,fragment)
                         .addToBackStack(null) //Addes til backstacken: UseCase: Hvis bruger gerne vil spille med et andet navn
                         .commit();
@@ -86,11 +73,13 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
             }
         }else if(v==goBack){
             getFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragmentindhold,new Frontpage_Fragment())
                     .addToBackStack(null)
                     .commit();
         }else if(v==createUser){
             getFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragmentindhold,new AddUser_Fragment())
                     .addToBackStack(null)
                     .commit();

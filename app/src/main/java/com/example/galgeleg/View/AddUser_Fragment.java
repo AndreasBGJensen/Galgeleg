@@ -58,6 +58,7 @@ static int count=0;
                 Fragment fragment = new Fragment3_Game();
 
                 getFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                         .replace(R.id.fragmentindhold,fragment)
 
                         .commit();
@@ -69,6 +70,7 @@ static int count=0;
 
         if(v==goBack){
             getFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragmentindhold,new Frontpage_Fragment())
                     .commit();
         }

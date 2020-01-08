@@ -122,6 +122,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     public void transaction(Fragment instance){
 
         getFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.fragmentindhold,instance)
                 .commit();
     }
