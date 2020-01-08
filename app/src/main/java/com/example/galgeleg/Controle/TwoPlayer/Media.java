@@ -24,6 +24,8 @@ public class Media {
 
             afspiller.start();
 
+
+        //Skal sikre at ressurcen bliver frigivet når afspiller er færdig med at spille.
         Thread tjeckIsPlayinte = new Thread(r);
         tjeckIsPlayinte.start();
     }
@@ -32,12 +34,6 @@ public class Media {
             afspiller.stop();
 
 
-    }
-
-    public void release(){
-        if(afspiller != null) {
-            afspiller.release();
-        }
     }
 
 
