@@ -1,6 +1,7 @@
 package com.example.galgeleg.View;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.galgeleg.Controle.TwoPlayer.Media;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 
@@ -21,11 +23,13 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
     Galgelogik logik = new Galgelogik();
     //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
-
+    Media afspiller;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d("Velkomst_frag", "fragmentet blev vist!");
 
+        afspiller = new Media(getActivity());
+        afspiller.play();
 
         ImageView iv = new ImageView(getActivity());
         iv.setImageResource(R.drawable.tombstone_courthouse_gallows);

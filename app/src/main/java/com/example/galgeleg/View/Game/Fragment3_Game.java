@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.galgeleg.Controle.TwoPlayer.Media;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
@@ -28,6 +29,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private ImageView errorIm;
     private FrameLayout errorImage;
     Settings settings = new Settings();
+    Media afspiller;
 
 
     private ImageControl imageControle = new ImageControl();
@@ -35,6 +37,9 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
+
+        afspiller = new Media(getActivity());
+        afspiller.stop();
 
         //This is set so that it will not save ole guessedletters due to static variable
         logik.nulstil();

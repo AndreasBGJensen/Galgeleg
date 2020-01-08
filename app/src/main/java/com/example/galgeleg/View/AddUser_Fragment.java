@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.R;
+import com.example.galgeleg.View.Game.Fragment3_Game;
 
 public class AddUser_Fragment extends Fragment implements View.OnClickListener {
 Button submit;
@@ -49,6 +50,18 @@ static int count=0;
             boolean request = database.addUser(userName, "0");
             if (request) {
                 username.setText("User added");
+
+                database.setCurrentUser(userName);
+                //Navigate to fragment...
+
+
+                Fragment fragment = new Fragment3_Game();
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentindhold,fragment)
+
+                        .commit();
+
             } else {
                 username.setText("Not valid" );
             }

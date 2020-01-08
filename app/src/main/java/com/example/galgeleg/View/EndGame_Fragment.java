@@ -2,6 +2,7 @@ package com.example.galgeleg.View;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.galgeleg.Controle.TwoPlayer.Media;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
@@ -29,6 +31,9 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     CalculatScore scoreCalculation;
     Settings settings = new Settings();
     Boolean twoPlayerMode = false;
+    Media afspiller;
+
+
     //Transaction_Fragments utilToFragment = new Transaction_Fragments();
 
 
@@ -40,13 +45,16 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         Bundle args = getArguments();
 
+        afspiller = new Media(getActivity());
+
         //Adding the confetti animation
         if(args.getString("Winner").equals("Winner")) {
             CommonConfetti.rainingConfetti(container, new int[]{Color.BLUE})
                     .oneShot(); //Only one shot of confetti will be rendered
         }
-if(settings.isTwoplayer()){
-        //if(args.containsKey("Two Player")){
+
+        if(settings.isTwoplayer()){
+
             twoPlayerMode = true;
         }
 
@@ -140,11 +148,11 @@ if(settings.isTwoplayer()){
 
         }else if(winner){
 
+            afspiller.play();
+
             udfald = "Tillykke du gætte ordet på "+args.getString("Antalforsøg")+" forsøg\n Ordet var:\n "+ordet;
             String newScorePoints = args.getString("Antalforsøg");
             String user = basen.getCurrentUser();
-
-
 
             /*Hvis der ikke spilles two player skal der ikke lægges to point til. Dette bliver kontrolleret ved at hente et objekt fra ShearedPreferences
             Som kun bliver lavet, hvis at der spilles two player
@@ -163,5 +171,14 @@ if(settings.isTwoplayer()){
 
         return udfald;
     }
+
+    /*
+        @Override
+        public void onDestroyView() {
+            afspiller.stop();
+            super.onDestroyView();
+        }
+    */
+
 }
 
