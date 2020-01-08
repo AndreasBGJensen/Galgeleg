@@ -18,7 +18,7 @@ import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 
 public class Velkomst_Fragment extends Fragment implements Runnable {
-
+    Galgelogik logik = new Galgelogik();
     //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
 
@@ -58,7 +58,7 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
      */
 
     class AsyncTask1 extends AsyncTask<String,String,String> {
-        Galgelogik logik = new Galgelogik();
+
         CharSequence text = "Downloaded ord fra DR!";
         @Override
         protected String doInBackground(String...Strings) {
