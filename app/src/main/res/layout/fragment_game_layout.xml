@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,50 +17,53 @@
         />
 
 
-        <TextView
+    <TextView
         android:id="@+id/ForkerteGæt"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="24dp"
-        android:text="Ord du har gættet på"
-        />
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Ord du har gættet på" />
 
         <TextView
             android:id="@+id/guessedLetters"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             />
 
-        <EditText
-        android:id="@+id/letterInput"
-        android:layout_width="257dp"
-        android:layout_height="53dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center">
 
+    <EditText
+        android:id="@+id/letterInput"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:ems="10"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName" />
 
 
+    <FrameLayout
+        android:id="@+id/ErrorImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        >
 
-        <FrameLayout
-            android:id="@+id/ErrorImage"
-            android:layout_width="284dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginRight="68dp"
-            android:layout_marginBottom="119dp"
-            >
+        <ImageView
+            android:id="@+id/errorIm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/forkert0" />
+    </FrameLayout>
 
-            <ImageView
-                android:id="@+id/errorIm"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/forkert0" />
-        </FrameLayout>
-
-
+    </LinearLayout>
 
 
 
@@ -69,6 +71,7 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Submit"
         />
 
