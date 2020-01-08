@@ -151,7 +151,7 @@ if(settings.isTwoplayer()){
              */
 
             if (!settings.isTwoplayer()) {
-                scoreCalculation = new CalculatScore(basen.getUser(user), newScorePoints);
+                scoreCalculation = new CalculatScore(basen.getUser(user), newScorePoints, ordet.length());
 
             basen.updateUser(basen.getCurrentUser(),scoreCalculation.getNewScore());
 
