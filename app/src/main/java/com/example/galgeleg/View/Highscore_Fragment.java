@@ -50,7 +50,7 @@ public class Highscore_Fragment extends Fragment implements View.OnTouchListener
 
 
 
-
+//Tab to remove highscore Liste
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         getFragmentManager().beginTransaction()
