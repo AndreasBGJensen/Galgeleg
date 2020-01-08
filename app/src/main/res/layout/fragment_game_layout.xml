@@ -1,56 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toStartOf="@+id/User"
-        app:layout_constraintStart_toStartOf="@+id/User">
 
+
+        <TextView
+        android:id="@+id/User"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:background="#701010"
+            android:gravity="center"
+            android:textSize="22dp"
+        android:text=""
+        />
+
+
+        <TextView
+        android:id="@+id/ForkerteGæt"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="24dp"
+        android:text="Ord du har gættet på"
+        />
 
         <TextView
             android:id="@+id/guessedLetters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="504dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.539"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/User"
-            app:layout_constraintVertical_bias="0.536" />
+            />
 
         <EditText
-            android:id="@+id/letterInput"
-            android:layout_width="257dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="148dp"
-            android:layout_marginBottom="126dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/ErrorImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.134" />
+        android:id="@+id/letterInput"
+        android:layout_width="257dp"
+        android:layout_height="53dp"
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            app:layout_constraintBottom_toTopOf="@+id/ErrorImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/letterInput"
-            app:layout_constraintVertical_bias="0.383" />
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+
 
         <FrameLayout
             android:id="@+id/ErrorImage"
@@ -61,12 +52,7 @@
             android:layout_marginEnd="68dp"
             android:layout_marginRight="68dp"
             android:layout_marginBottom="119dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.555"
-            app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintVertical_bias="1.0">
+            >
 
             <ImageView
                 android:id="@+id/errorIm"
@@ -75,31 +61,15 @@
                 app:srcCompat="@drawable/forkert0" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/ForkerteGæt"
-            android:layout_width="160dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="24dp"
-            android:text="Ord du har gættet på"
-            app:layout_constraintBottom_toTopOf="@+id/guessedLetters"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.553"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/User"
-            android:layout_width="92dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginBottom="280dp"
-            android:text=""
-            app:layout_constraintBottom_toTopOf="@+id/ErrorImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        />
+
 </LinearLayout>
