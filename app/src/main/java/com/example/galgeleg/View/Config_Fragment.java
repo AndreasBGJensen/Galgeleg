@@ -78,7 +78,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
 */
                 getFragmentManager().beginTransaction()
                         .replace(R.id.fragmentindhold,fragment)
-
+                        .addToBackStack(null) //Addes til backstacken: UseCase: Hvis bruger gerne vil spille med et andet navn
                         .commit();
             } else {
                 message.setText("You have entered a wrong username");
