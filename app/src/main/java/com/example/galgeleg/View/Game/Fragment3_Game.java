@@ -99,7 +99,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
 
-        if(logik.erSpilletTabt()||logik.erSpilletVundet() || logik.erSpilletSlut()){
+        if(logik.erSpilletTabt()||logik.erSpilletVundet() || logik.erSpilletSlut() || !tjekSynligtOrd(logik.getSynligtOrd())){
 
             Fragment endgame = new EndGame_Fragment();
 
@@ -150,6 +150,15 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         return feedback;
     }
 
+    /*Denne metode er placeret i denne class da vi har fået indstrukser om at det ikke er tilladt at
+    ændre i class Galgelogik.java*/
+    private boolean tjekSynligtOrd(String synligtOrd){
+        if(synligtOrd.contains("*")){
+            return true;
+        }
+        return false;
+
+    }
 
 }
 
