@@ -1,21 +1,16 @@
 package com.example.galgeleg.View;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.MotionEventCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.galgeleg.Controle.TwoPlayer.SimpleSwipe;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Spillogik.HighScore.ListViewAdapter;
 import com.example.galgeleg.Model.Spillogik.HighScore.UserHighScoreDTO;
@@ -27,7 +22,7 @@ import java.util.List;
 public class Highscore_Fragment extends Fragment implements View.OnTouchListener {
 
 
-    SimpleSwipe detector;
+
     RecyclerView recyclerView;
 
     @Override
@@ -60,7 +55,7 @@ public class Highscore_Fragment extends Fragment implements View.OnTouchListener
     public boolean onTouch(View v, MotionEvent event) {
         getFragmentManager().beginTransaction()
                 //.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
-                .detach(this)
+                .remove(this)
                 .commit();
         return true;
     }

@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
@@ -26,7 +27,11 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     Button spilIgen;
     Button frontPage;
     CalculatScore scoreCalculation;
+    Settings settings = new Settings();
+    Boolean twoPlayerMode = false;
     //Transaction_Fragments utilToFragment = new Transaction_Fragments();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,9 +42,19 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         //Adding the confetti animation
         if(args.getString("Winner").equals("Winner")) {
-            CommonConfetti.rainingConfetti(container, new int[]{Color.BLACK})
+            CommonConfetti.rainingConfetti(container, new int[]{Color.BLUE})
                     .oneShot(); //Only one shot of confetti will be rendered
         }
+if(settings.isTwoplayer()){
+        //if(args.containsKey("Two Player")){
+            twoPlayerMode = true;
+        }
+
+
+            spilIgen = view.findViewById(R.id.SpilIgen);
+            spilIgen.setOnClickListener(this);
+
+
 
         TextView endGameMsg = view.findViewById(R.id.msg);
         //endGameMsg.setText(howDidItTurnOut(i));
@@ -50,8 +65,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
         frontPage = view.findViewById(R.id.FrontPage);
         frontPage.setOnClickListener(this);
 
-        spilIgen = view.findViewById(R.id.SpilIgen);
-        spilIgen.setOnClickListener(this);
+
 
         return view;
 
@@ -80,12 +94,17 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         basen.removeCurrentUser();
         transaction(fragment);
-    } else if(v==spilIgen){
-        fragment = new Fragment3_Game();
-        transaction(fragment);
+    } else if(v==spilIgen) {
+
+        if (twoPlayerMode) {
+            fragment = new TwoPlayer_Fragment();
+            transaction(fragment);
+
+        } else {
+            fragment = new Fragment3_Game();
+            transaction(fragment);
         }
-
-
+    }
 
     }
 
@@ -131,7 +150,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
             Som kun bliver lavet, hvis at der spilles two player
              */
 
-            if (args.getString("Two Player")==null) {
+            if (!settings.isTwoplayer()) {
                 scoreCalculation = new CalculatScore(basen.getUser(user), newScorePoints);
 
             basen.updateUser(basen.getCurrentUser(),scoreCalculation.getNewScore());

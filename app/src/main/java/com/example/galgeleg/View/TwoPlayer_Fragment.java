@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
@@ -24,13 +25,14 @@ public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSe
     Spinner spinner;
     Button further;
     private String choosenWord;
+    Settings  settings = new Settings();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.twoplayer_fragment_layout, container, false); //Why do we not attatch to root????
 
-
-
+        settings.setTwoPlayerMode(true);
+        settings.printState();
         spinner = view.findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 

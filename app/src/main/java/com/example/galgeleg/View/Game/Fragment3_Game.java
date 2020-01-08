@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Model.Database.Database;
+import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.EndGame_Fragment;
@@ -26,6 +27,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     private Button submit;
     private ImageView errorIm;
     private FrameLayout errorImage;
+    Settings settings = new Settings();
 
 
     private ImageControl imageControle = new ImageControl();
@@ -58,7 +60,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
 
         if(args != null){
-            if(args.getString("Two Player")!=null) {
+            if(settings.isTwoplayer()) {
                 helloUser.setText(args.getString("Two Player"));
                 System.out.println(args.getString("choosenWord"));
                 logik.setOrdet(args.getString("choosenWord"));
@@ -108,7 +110,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             args.putString("ordetSomSkalGættes",Outcome()[1]);
             args.putString("Antalforsøg",Outcome()[2]);
 
-            if(args.getString("Two Player")!=null){
+            if(settings.isTwoplayer()){
                 args.putString("Two Player", "Hello My best friend");
             }
 
