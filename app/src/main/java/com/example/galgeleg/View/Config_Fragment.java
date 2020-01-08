@@ -75,13 +75,11 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
             getFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragmentindhold,new Frontpage_Fragment())
-                    .addToBackStack(null)
                     .commit();
         }else if(v==createUser){
             getFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragmentindhold,new AddUser_Fragment())
-                    .addToBackStack(null)
                     .commit();
         }
 

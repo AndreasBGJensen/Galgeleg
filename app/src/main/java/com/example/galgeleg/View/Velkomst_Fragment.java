@@ -31,18 +31,20 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
         afspiller = new Media(getActivity());
         afspiller.play();
 
+        AsyncTask1 AsyncTask = new AsyncTask1();
+        AsyncTask.execute();
+
         ImageView iv = new ImageView(getActivity());
         iv.setImageResource(R.drawable.tombstone_courthouse_gallows);
         iv.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.egen_anim));
 
         // Hvis savedInstanceState ikke er null er fragmentet ved at blive genstartet
         if (savedInstanceState == null) {
-            handler.postDelayed(this, 6000); //Skifter fragmentet når delayet er opfyldt
+            handler.postDelayed(this, 5000); //Skifter fragmentet når delayet er opfyldt
         }
 
         //Indhenter ord fra dr i for at når dette fragment laves for at alle ord er tilstede når spillet går igang.
-        AsyncTask1 AsyncTask = new AsyncTask1();
-        AsyncTask.execute();
+
 
         return iv;
     }
