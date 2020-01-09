@@ -20,6 +20,8 @@ import com.example.galgeleg.Model.Spillogik.Galgelogik;
 import com.example.galgeleg.R;
 
 public class Velkomst_Fragment extends Fragment implements Runnable {
+
+    //TODO: Flytte denne således at det ikke er nødvendigt at instanciere to Galgelogikobjekter.
     Galgelogik logik = new Galgelogik();
     //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
@@ -61,6 +63,7 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
 
     /*
     Henter ord fra DR
+
      */
 
     class AsyncTask1 extends AsyncTask<String,String,String> {
