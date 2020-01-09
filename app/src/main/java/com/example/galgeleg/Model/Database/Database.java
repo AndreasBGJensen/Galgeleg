@@ -32,6 +32,10 @@ public class Database extends AppCompatActivity {
 
     private Database(Context context){
          pref = PreferenceManager.getDefaultSharedPreferences(context);
+         addUser("Test User1", "100");
+        addUser("Test User2", "10");
+        addUser("Test User3", "53");
+        addUser("Test User4", "10");
 
     }
 

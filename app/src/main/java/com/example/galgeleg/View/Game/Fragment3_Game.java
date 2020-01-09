@@ -39,7 +39,7 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_game_layout,container,false); //Why do we not attatch to root????
 
-        afspiller = Media.getInstance(getActivity());
+        afspiller = Media.getInstance();
         afspiller.stop();
 
         //This is set so that it will not save ole guessedletters due to static variable

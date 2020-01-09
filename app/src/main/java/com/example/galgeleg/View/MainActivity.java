@@ -4,7 +4,6 @@ package com.example.galgeleg.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
@@ -24,20 +23,24 @@ import java.lang.ref.WeakReference;
 I denne opgave har jeg forsøgt at implementere lidt forskellige løsninger.
 Til at løse opgave har jeg gjort brug af følgende:
 - AsyncTask: til at hente ord fra DR
+- Thread til Medie afspilning
 - RecyclerView til at lave en highScore Liste
 - ShearedPreferences til at gemme data på telefonen - Create User.
 - Costom liste i two player mode - her kan der vælges et ord fra listen.
 - Afspille en lyd - når der vindes et spil
+- Animation når et spil vindes
+
+Til navigation er der taget udgangspunkt i at tilbageknappen anvendes og jeg er godt klar over at aktiviteter bliver fjernet når denne anvendes.
  */
 
 public class MainActivity extends AppCompatActivity {
     Galgelogik logik = WrapperGalgelogik.getInstance();
-    Media afspiller;
+    static Media afspiller;
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
 
-        afspiller = Media.getInstance(getApplicationContext());
+        afspiller = Media.initiate(getApplicationContext());
         afspiller.play();
 
         setContentView(R.layout.hovedskaerm_fragmentindehold);
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         // Man kan trykke på app-ikonet i øverste venstre hjørne
         // (og det betyder at brugeren vil navigere op i hierakiet)
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        /*Indhenter ord fra dr i for at når dette fragment laves for at alle ord er tilstede når spillet går igang.
+        Indhenter ordet her i for at vi er sikre på at ordene er tilgængelige, hvis at der skal spilles two player*/
         AsyncTask1 AsyncTask = new AsyncTask1(this,logik);
         AsyncTask.execute();
 
@@ -68,6 +74,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        afspiller.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        afspiller.initiate(getApplicationContext());
+        afspiller.play();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        afspiller.initiate(getApplicationContext());
+        afspiller.play();
+    }
 
     private static class AsyncTask1 extends AsyncTask<String,String,String> {
 
@@ -103,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 activityRef.get().showToast(text);
 
             }
-
         }
     }
 }

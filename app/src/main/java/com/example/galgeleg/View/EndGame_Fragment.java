@@ -37,7 +37,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
 
         Bundle args = getArguments();
 
-        afspiller = Media.restartPlayer(getActivity());
+        afspiller = Media.restartPlayer(getActivity().getApplicationContext());
 
         //Adding the confetti animation
         if(args.getString("Winner").equals("Winner")) {

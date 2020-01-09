@@ -1,10 +1,10 @@
 package com.example.galgeleg.Controle.TwoPlayer;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.media.MediaPlayer;
 
-import com.example.galgeleg.Model.Database.Database;
+
 import com.example.galgeleg.R;
 
 public class Media {
@@ -21,17 +21,20 @@ public class Media {
 
     }
 
-    public static Media getInstance(Context context){
+    public static Media initiate(Context context){
         if(media == null){
             media = new Media(context);
         }
-
         return media;
     }
 
-    public static Media restartPlayer(Activity context){
+    public static Media getInstance(){
+        return media;
+    }
+
+    public static Media restartPlayer(Context context){
         if(media == null){
-            return getInstance(context);
+            return initiate(context);
         }
             afspiller.release();
             media = new Media(context);
@@ -50,14 +53,20 @@ public class Media {
             @Override
             public void run() {
                 while(afspiller.isPlaying()){
+
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(1000);
+
+                        if(!afspiller.isPlaying()){
+                            afspiller.start();
+                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
                 System.out.println("Released the mediaplayer");
-                afspiller.release();
+                //According to
+                //afspiller.release();
             }
         };
 
