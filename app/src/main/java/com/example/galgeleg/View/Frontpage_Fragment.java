@@ -79,7 +79,6 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
                     .replace(R.id.fragmentindhold,instance)
 
                     .commit();
-
         }
 
         if(v == twoPlayer){
@@ -98,8 +97,4 @@ public class Frontpage_Fragment extends Fragment implements View.OnClickListener
                 .addToBackStack(null)
                 .commit();
     }
-
-
-
-
 }

@@ -22,23 +22,24 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
     Button continueButton;
     Button goBack;
     Button createUser;
+    Database base;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.config_fragment_layout,container,false); //Why do we not attatch to root????
-        Database base = Database.getInstance(getContext());
+
+        base = Database.getInstance(getContext());
         base.removeCurrentUser();
+
         message = view.findViewById(R.id.message);
         submitUser = view.findViewById(R.id.submitUser);
-
-
         continueButton = view.findViewById(R.id.config_continue);
-        continueButton.setOnClickListener(this);
-
-        goBack = view.findViewById(R.id.toFront);
-        goBack.setOnClickListener(this);
-
         createUser = view.findViewById(R.id.CreateUser);
+        goBack = view.findViewById(R.id.toFront);
+
+
+        continueButton.setOnClickListener(this);
+        goBack.setOnClickListener(this);
         createUser.setOnClickListener(this);
 
 
@@ -50,7 +51,6 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Database base = Database.getInstance(getContext());
 
         String enteredUsername = submitUser.getText().toString();
 
@@ -71,6 +71,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
                 message.setText("You have entered a wrong username");
 
             }
+
         }else if(v==goBack){
             getFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
@@ -82,11 +83,7 @@ public class Config_Fragment extends Fragment implements View.OnClickListener {
                     .replace(R.id.fragmentindhold,new AddUser_Fragment())
                     .commit();
         }
-
-
-
-
-        }
+    }
 
 
 

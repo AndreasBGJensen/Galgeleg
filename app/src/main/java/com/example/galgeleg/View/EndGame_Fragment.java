@@ -1,8 +1,6 @@
 package com.example.galgeleg.View;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +18,6 @@ import com.example.galgeleg.Model.Spillogik.HighScore.CalculatScore;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 import com.github.jinatonic.confetti.CommonConfetti;
-//import com.example.galgeleg.Utility.Transaction_Fragments;
 
 public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     String ordet;
@@ -32,11 +29,6 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
     Settings settings = new Settings();
     Boolean twoPlayerMode = false;
     Media afspiller;
-
-
-    //Transaction_Fragments utilToFragment = new Transaction_Fragments();
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,26 +45,16 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
                     .oneShot(); //Only one shot of confetti will be rendered
         }
 
-        if(settings.isTwoplayer()){
-
-            twoPlayerMode = true;
-        }
-
-
-            spilIgen = view.findViewById(R.id.SpilIgen);
-            spilIgen.setOnClickListener(this);
-
-
-
-        TextView endGameMsg = view.findViewById(R.id.msg);
-        //endGameMsg.setText(howDidItTurnOut(i));
-        endGameMsg.setText(howDidItTurnOut(args));
-        tilHighscore = view.findViewById(R.id.highScore);
-        tilHighscore.setOnClickListener(this);
-
         frontPage = view.findViewById(R.id.FrontPage);
+        tilHighscore = view.findViewById(R.id.highScore);
+        spilIgen = view.findViewById(R.id.SpilIgen);
+
+        spilIgen.setOnClickListener(this);
+        tilHighscore.setOnClickListener(this);
         frontPage.setOnClickListener(this);
 
+        TextView endGameMsg = view.findViewById(R.id.msg);
+        endGameMsg.setText(howDidItTurnOut(args));
 
 
         return view;
@@ -94,7 +76,6 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
                 .addToBackStack(null)
                 .commit();
 
-
     }
     else if(v==frontPage){
 
@@ -104,7 +85,7 @@ public class EndGame_Fragment extends Fragment implements View.OnClickListener {
         transaction(fragment);
     } else if(v==spilIgen) {
 
-        if (twoPlayerMode) {
+        if (settings.isTwoplayer()) {
             fragment = new TwoPlayer_Fragment();
             transaction(fragment);
 

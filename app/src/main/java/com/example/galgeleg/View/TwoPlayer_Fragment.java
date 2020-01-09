@@ -34,21 +34,18 @@ public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSe
 
         settings.setTwoPlayerMode(true);
         settings.printState();
-        spinner = view.findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
+
 
         further = view.findViewById(R.id.TwoPlayerContinue);
         further.setOnClickListener(this);
 
-
-        //recyclerView = view.findViewById(R.id.WordsRecyclerView);
-
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //recyclerView.setAdapter(new MyWordAdapter(logik.getMuligtOrd()));
-
+        /*
+        Creating an adapter for new list. This list is costumdesigned, just for the fun of it but not so pretty;).
+         */
+        spinner = view.findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.twoplayer_fragment_spinner_item_layout, R.id.SpinnerOrd, logik.getMuligtOrd());
         adapter.setDropDownViewResource(R.layout.twoplayer_fragment_spinner_item_layout);
-
         spinner.setAdapter(adapter);
 
 
@@ -64,7 +61,7 @@ public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSe
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        //To do notify that if no word is selected.
     }
 
     @Override

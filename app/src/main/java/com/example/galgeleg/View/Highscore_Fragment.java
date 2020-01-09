@@ -21,14 +21,11 @@ import java.util.List;
 
 public class Highscore_Fragment extends Fragment implements View.OnTouchListener {
 
-
-
     RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.highscore_fragment_liste,container,false);
-
 
         //Here i initializing alot of test users.
         Database database = Database.getInstance(getContext());
@@ -46,8 +43,6 @@ public class Highscore_Fragment extends Fragment implements View.OnTouchListener
 
         return view;
     }
-
-
 
 
 //Tab to remove highscore Liste

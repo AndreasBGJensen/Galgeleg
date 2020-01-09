@@ -1,5 +1,9 @@
 package com.example.galgeleg.Model.Spillogik;
 
+/*
+Singleton for Galgelogik
+ */
+
 public class WrapperGalgelogik {
 
     static Galgelogik galgelogik = null;

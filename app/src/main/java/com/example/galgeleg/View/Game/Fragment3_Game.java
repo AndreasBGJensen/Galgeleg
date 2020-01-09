@@ -44,27 +44,29 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
         //This is set so that it will not save ole guessedletters due to static variable
         logik.nulstil();
-        Bundle args = getArguments();
+
 
         Database base = Database.getInstance(getContext());
+
         helloUser = view.findViewById(R.id.User);
-        helloUser.setText("Hello "+base.getCurrentUser()+"!");
-
         lettersGuessed = view.findViewById(R.id.guessedLetters);
-
         letterInput = view.findViewById(R.id.letterInput);
-
-        gæt = view.findViewById(R.id.ForkerteGæt);
-
-        submit = view.findViewById(R.id.submit);
-        submit.setOnClickListener(this);
-
         errorImage = view.findViewById(R.id.ErrorImage);
+        gæt = view.findViewById(R.id.ForkerteGæt);
+        submit = view.findViewById(R.id.submit);
         errorIm = view.findViewById(R.id.errorIm);
 
+        submit.setOnClickListener(this);
+
+        helloUser.setText("Hello "+base.getCurrentUser()+"!");
+
+        //For deabugging
         logik.logStatus();
 
-
+        //Transfering data from former fragment
+        //Used this way to demonstrate a use of bundle
+        //TODO: Implement by observer or into setting class
+        Bundle args = getArguments();
         if(args != null){
             if(settings.isTwoplayer()) {
                 helloUser.setText(args.getString("Two Player"));
@@ -76,9 +78,10 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
         }
         lettersGuessed.setText(logik.getSynligtOrd());
         return view;
-
     }
+    /*
 
+    Have no use at the moment
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         Log.d("Fragment3_Game", "setUserVisibleHint: "+isVisibleToUser);
@@ -87,21 +90,15 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             Database base = Database.getInstance(getContext());
             helloUser.setText("Hello "+base.getCurrentUser()+"!");
             lettersGuessed.setText(logik.getSynligtOrd());
-
         }
     }
-
+    */
     @Override
     public void onClick(View v) {
-
-
-
-
         logik.gætBogstav(letterInput.getText().toString());
         gæt.setText(logik.getBrugteBogstaver().toString());
         lettersGuessed.setText(logik.getSynligtOrd());
         letterInput.setText("");
-
         imageControle.map(logik.getAntalForkerteBogstaver(),errorIm,errorImage);
 
 
@@ -125,16 +122,6 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragmentindhold,endgame)
                     .commit();
-
-
-           /* Intent i = new Intent(getActivity(), EndGame_Fragment.class);
-            i.putExtra("Winner",logik.erSpilletVundet());
-            i.putExtra("Looser",logik.erSpilletTabt());
-            i.putExtra("ordetSomSkalGættes",logik.getOrdet());
-            i.putExtra("Antalforsøg",logik.getBrugteBogstaver().size());
-            startActivity(i);*/
-
-
         }
 
     }
@@ -155,8 +142,6 @@ public class Fragment3_Game extends Fragment implements View.OnClickListener {
 
         return feedback;
     }
-
-
 }
 
 

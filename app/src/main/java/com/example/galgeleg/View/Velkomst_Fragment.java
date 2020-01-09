@@ -27,14 +27,14 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
     //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
     Media afspiller;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d("Velkomst_frag", "fragmentet blev vist!");
 
         afspiller = new Media(getActivity());
         afspiller.play();
-
-
 
         ImageView iv = new ImageView(getActivity());
         iv.setImageResource(R.drawable.tombstone_courthouse_gallows);
@@ -53,6 +53,10 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
         return iv;
     }
 
+    /*
+    Running the welcome animation of gallows
+     */
+
     public void run() {
         if (getActivity()==null) return; // Hvis brugeren er hoppet ud af aktiviteten
         Fragment fragment = new Frontpage_Fragment();
@@ -65,9 +69,7 @@ public class Velkomst_Fragment extends Fragment implements Runnable {
 
     /*
     Henter ord fra DR
-
      */
-
     class AsyncTask1 extends AsyncTask<String,String,String> {
 
         CharSequence text = "Downloaded ord fra DR!";

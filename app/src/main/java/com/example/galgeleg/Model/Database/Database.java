@@ -24,7 +24,7 @@ få mere kendskab til sharedpræferences og fordi at jeg gerne ville prøve at l
 public class Database extends AppCompatActivity {
     static Database base = null;
 
-
+//TODO: Deprecated - find a solution for this
      SharedPreferences pref;
      List<UserHighScoreDTO> testList = new ArrayList<>();
 

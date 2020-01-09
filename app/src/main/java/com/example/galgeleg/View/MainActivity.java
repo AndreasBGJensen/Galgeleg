@@ -15,7 +15,9 @@ I denne opgave har jeg forsøgt at implementere lidt forskellige løsninger.
 Til at løse opgave har jeg gjort brug af følgende:
 - AsyncTask: til at hente ord fra DR
 - RecyclerView til at lave en highScore Liste
-- ShearedPreferences til at gemme data på telefonen.
+- ShearedPreferences til at gemme data på telefonen - Create User.
+- Costom liste i two player mode - her kan der vælges et ord fra listen.
+- Afspille en lyd - når der vindes et spil
  */
 
 public class MainActivity extends AppCompatActivity {
