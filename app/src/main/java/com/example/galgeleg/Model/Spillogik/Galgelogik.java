@@ -14,7 +14,9 @@ import java.util.Random;
 
 public class Galgelogik {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
-    static ArrayList<String> muligeOrd = new ArrayList<String>();//Denne liste er lavet static for at der kan oprettes et objekt til at hente ord fra DR i Fragment_frontpage
+    //Denne liste er lavet static for at der kan oprettes et objekt til at hente ord fra DR i Fragment_velkomst
+    //Dette kan give problemer i forhold til at mange af de samme ord kan komme til at gå igen.
+    static ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;

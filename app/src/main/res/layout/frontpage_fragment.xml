@@ -1,103 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#701010"
-    android:orientation="vertical">
-    android:orientation="vertical"
-    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HANGMAN"
-        android:textColor="#020101"
-        android:textSize="15pt"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        tools:text="HANGMAN"
-        />
-
-    <TextView
-        android:id="@+id/textView"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:text="This game i all about surviving\n Lets see how you will do\n\n You have to guess the letters that \n the word consists of.\n \n"
-        android:textAlignment="center"
-        android:textSize="22dp"
-        />
+        android:layout_height="match_parent"
+        android:background="#701010"
+        android:orientation="vertical">
+        android:orientation="vertical"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="HANGMAN"
+                    android:textColor="#020101"
+                    android:textSize="15pt"
+                    tools:text="HANGMAN" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:text="This game i all about surviving\n Lets see how you will do\n\n You have to guess the letters that \n the word consists of.\n \n"
+                    android:textAlignment="center"
+                    android:textSize="22dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/SinglePlay"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+
+                        android:layout_marginBottom="20dp"
+                        android:text="Single Player" />
+
+                    <Button
+                        android:id="@+id/TwoPlayer"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="TWO PLAYER" />
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="0dp"
-        android:orientation="horizontal">
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/SinglePlay"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-               android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
 
-                android:layout_gravity="center"
-                android:text="Single Player" />
+                    <Button
+                        android:id="@+id/opretUser"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Add User" />
 
-        <Button
-            android:id="@+id/TwoPlayer"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="TWO PLAYER" />
-
-
+                    <Button
+                        android:id="@+id/highscore"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="HIGHSCORE" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/opretUser"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="Add User" />
-
-        <Button
-            android:id="@+id/highscore"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="HIGHSCORE" />
-
-
-    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
 
 </LinearLayout>
-
