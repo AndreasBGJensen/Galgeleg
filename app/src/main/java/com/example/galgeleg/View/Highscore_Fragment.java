@@ -19,7 +19,7 @@ import com.example.galgeleg.R;
 import java.util.Collections;
 import java.util.List;
 
-public class Highscore_Fragment extends Fragment implements View.OnTouchListener {
+public class Highscore_Fragment extends Fragment implements View.OnClickListener {
 
     RecyclerView recyclerView;
 
@@ -36,7 +36,7 @@ public class Highscore_Fragment extends Fragment implements View.OnTouchListener
         System.out.println(testList);
 
         recyclerView = view.findViewById(R.id.listRecycleView);
-        recyclerView.setOnTouchListener(this);
+        recyclerView.setOnClickListener(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ListViewAdapter(testList));
@@ -45,14 +45,12 @@ public class Highscore_Fragment extends Fragment implements View.OnTouchListener
     }
 
 
-//Tab to remove highscore Liste
+
+
+
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        getFragmentManager().beginTransaction()
-                //.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
-                .remove(this)
-                .commit();
-        return true;
+    public void onClick(View v) {
+
     }
 }
 

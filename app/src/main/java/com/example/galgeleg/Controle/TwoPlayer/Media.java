@@ -64,7 +64,7 @@ public class Media {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("Released the mediaplayer");
+                System.out.println("Start over the mediaplayer");
                 //According to
                 //afspiller.release();
             }
