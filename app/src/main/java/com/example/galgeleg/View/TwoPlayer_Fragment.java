@@ -15,12 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
+import com.example.galgeleg.Model.Spillogik.WrapperGalgelogik;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.Game.Fragment3_Game;
 
 
 public class TwoPlayer_Fragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
-    Galgelogik logik = new Galgelogik();
+    Galgelogik logik = WrapperGalgelogik.getInstance();
     RecyclerView recyclerView;
     Spinner spinner;
     Button further;

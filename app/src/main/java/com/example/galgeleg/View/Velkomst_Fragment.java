@@ -17,12 +17,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.galgeleg.Controle.TwoPlayer.Media;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
+import com.example.galgeleg.Model.Spillogik.WrapperGalgelogik;
 import com.example.galgeleg.R;
 
 public class Velkomst_Fragment extends Fragment implements Runnable {
 
     //TODO: Flytte denne således at det ikke er nødvendigt at instanciere to Galgelogikobjekter.
-    Galgelogik logik = new Galgelogik();
+    Galgelogik logik = WrapperGalgelogik.getInstance();
     //Anvender en handler til at udføre en animation fra hovedtråden.
     Handler handler = new Handler();
     Media afspiller;

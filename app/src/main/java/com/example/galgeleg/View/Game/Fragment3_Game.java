@@ -18,11 +18,12 @@ import com.example.galgeleg.Controle.TwoPlayer.Media;
 import com.example.galgeleg.Model.Database.Database;
 import com.example.galgeleg.Model.Settings;
 import com.example.galgeleg.Model.Spillogik.Galgelogik;
+import com.example.galgeleg.Model.Spillogik.WrapperGalgelogik;
 import com.example.galgeleg.R;
 import com.example.galgeleg.View.EndGame_Fragment;
 
 public class Fragment3_Game extends Fragment implements View.OnClickListener {
-    private static Galgelogik logik = new Galgelogik();
+    private Galgelogik logik = WrapperGalgelogik.getInstance();
     private TextView lettersGuessed, gæt, helloUser;
     private EditText letterInput;
     private Button submit;
